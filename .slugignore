@@ -5,4 +5,7 @@ core.Microsoft*
 core.mongo*
 core.python*
 env.py
-__pycache__/heroku plugins:install heroku-builds
+__pycache__/
+*.py[cod]
+node_modules/
+.github/
