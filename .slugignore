@@ -1,2 +1,8 @@
 begin.py
 inputs/mildew_dataset/cherry-leaves/test
+inputs/mildew_dataset/cherry-leaves/train
+core.Microsoft*
+core.mongo*
+core.python*
+env.py
+__pycache__/
