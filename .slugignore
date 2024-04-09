@@ -1,6 +1,7 @@
 begin.py
 inputs/mildew_dataset/cherry-leaves/test
 inputs/mildew_dataset/cherry-leaves/train
+inputs/mildew_dataset/cherry-leaves/validation
 core.Microsoft*
 core.mongo*
 core.python*
@@ -9,3 +10,4 @@ __pycache__/
 *.py[cod]
 node_modules/
 .github/
+jupyter_notebooks
