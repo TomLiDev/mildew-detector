@@ -10,7 +10,7 @@ st.write("Page 4")
 def page4_create():
     st.write("Page 4 function test")
 
-    version = 'v1'
+    version = 'v2'
 
     st.write("### Train, Validation and Test Set: Labels Frequencies")
 

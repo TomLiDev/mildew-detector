@@ -12,5 +12,4 @@ def page5_create():
         f"* An Image Montage shows that typically a parasitised cell has purplish marks across it. "
         f"Average Image, Variability Image and Difference between Averages studies did not reveal "
         f"any clear pattern to differentiate one from another."
-
     )
