@@ -25,20 +25,9 @@ Please use the link below to view the live, deployed site:
     - [The Structure Plane](#the-structure-plane)
       - [Features](#features)
       - [General Features On All pages](#general-features-on-all-pages)
-      - [Nav Bar](#nav-bar)
-      - [Footer](#footer)
-      - [Register/Sign Up Page](#registersign-up-page)
-      - [Homepage](#homepage)
-      - [Post Page](#post-page)
-      - [404 Error Page](#404-error-page)
     - [The Skeleton Plane](#the-skeleton-plane)
       - [Wireframes](#wireframes)
       - [Security](#security)
-    - [The Surface Plane](#the-surface-plane)
-      - [Design](#design)
-        - [Colour Scheme](#colour-scheme)
-        - [Typography](#typography)
-        - [Imagery](#imagery)
   - [Future Implementations/Plans](#future-implementationsplans)
     - [Accessibility](#accessibility)
   - [Technologies Used](#technologies-used)
@@ -60,8 +49,9 @@ The cherry plantation crop from Farmy & Foods is facing a challenge where their 
 
 To save time in this process, the IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
 
-1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
-2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+- 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
+
+- 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 
 ## Project Hypotheses and Validation
 
@@ -73,12 +63,23 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ## Rationale of Business Requirements to Data Visualisation and Machine Learning Tasks
 
+- Business Requirement 1 - Data Visualisation
+
+- The dashboard will showcase the 'mean' and 'standard deviation' images for both healthy and powdery mildew-infected cherry leaves.
+- The dashboard will display the contrast between an average healthy leaf and an average leaf infected with powdery mildew.
+- The dashboard will have the ability to provide an image montage featuring healthy and powdery mildew infected leaves to give users a snapshot of the image data used.
+
+- Business Requirements 2 - ML Prediction/Identification
+
+- A machine learning model will be created and fitted to the image data to develop an ML system which is able to classify with satisfactory accuracy whether or not a leaf/leaves are infected with powdery mildew or not.
+- The treshold accuracy for this ML system is 97%.
+
 ## Machine Learning Business Case
 
 
 ## User Experience Design
 
-As the project will primarily be used via a Streamlit dashboard a great deal of the design considerations for a traditional website do not apply. However I felt it was useful to include these sections to show a consideration for User Experience and engagement with the dashboard as far as is possible. 
+As the project will primarily be used via a Streamlit dashboard a great deal of the design considerations for a traditional website do not apply. Elements such as the Surface Plane, concerned with fonts and images, do not apply to this project so have been omitted, however I felt it was useful to some of the aspects relating to user experience design to show a consideration for User Experience and engagement with the dashboard as far as is possible. 
 
 ### The Strategy Plane
 
@@ -152,7 +153,7 @@ This epic includes the user stories which define the business user facing requir
 
 - Dashboard. A visually attractive and simple to use dashboard for users engage with the key deliverables desired for this project. 
 
-### The Structure Plane
+### Dashboard Design
 
 ### Features
 
@@ -174,27 +175,40 @@ Each page will have the same title, the project name - Powdery Mildew Detector C
 
 The first page of the dashboard will be the project summary page. 
 
-This will give a breif text summary of the key points of the project, the desired outcomes and what this project aims to deliver.
+This will give a brief text summary of the key points of the project, the data used, the business requirements and project hypotheses to determine if the project has been succesful or not. 
 
 ![An image of the homepage on different devices](documentation/homepage-devices.PNG)
 
 ### Data Visualisation
 
-The dashboard will contain a data visualisation page. 
+The dashboard will contain a data visualisation page, this will summarise some of the key characteristics of the data. Specifically it will include:
 
-This page will give snippets of the data that is used for the model training, this will take the form of an image montage so that users can see a small collection of typical images for healthy and powdery images. 
-
-This page will also include analysis of the average and variance between healthy and powedery-mildew infected leaves. 
+- Figures showing the average and variance between healthy and powedery-mildew infected leaves.
+- Figure showing the 
+- The option to create an image montage, showing the user a small collection of typical images for healthy and powdery mildew infected leaves. 
 
 ![An image of the Find Detail page on different devices](documentation/find-detail-devices.PNG)
 
+### Mildew Detector 
+
+The dashboard will include a page where users can upload images of leaves for the ML to classify whether or not the leaf(s) is infected with powdery mildew or not. This will page will.
+
+- Include an option for users to upload a leaf image.
+- Return a prediction on whether or not the leaf is infected with powdery mildew or not.
+
 ### ML Performance
 
-This dashboard page will show and explain the performance of the machine learning system to a business user.
+This dashboard page will show and explain the performance of the machine learning system to a business user. Specifically it will include:
+
+- Figures showing how the image data was split for training, testing and validation.
+- Figures showing the evolution of the ML system through fitting
+- A figure showing the overall predictive accuracy of the ML 
 
 ### Project Hypothesis and Success Page
 
 This page will explain how the project has delivered against the business objectives and what this means for the acceptance/rejection of the project hypotheses.
+
+This page will list each hypothesis, whether the project has provided the means to validate the hypothesis, and subsequently whether or not the hypothesis can be accepted or rejected.
 
 ### The Skeleton Plane
 
@@ -217,24 +231,6 @@ As all the pages will follow a similar Streamlit dashboard design the requiremen
 #### Security
 
 They key security element of this project is the protection of the developers Kaggle json. This file will be carefully managed to ensure it is not exposed or committed ot the repository.
-
-### The Surface Plane
-
-#### Design
-
-#### Colour Scheme
-
-As the application will be viewed via a Streamlit dashboard there is limited amount of customisation which can incorporated and the dashboard itself is largely set to the standard defaults colours. 
-
-Where relevant, the Streamlit capacity for different coloured text boxes for information, warnings etc will be utilised to draw attention and give meaning to different sections.
-
-#### Typography
-
-Lato is used as the standard font across the site. 
-
-#### Imagery
-
-Due to the nature and restriction of using Streamlit, little use will be made of additional images. This is deliberate, as attention should be drawn to images of leaves as and when they are displayed as identifying if these leaves are infected with Powdery Mildew is the first objective of this project. 
 
 ## Future Implementations/Plans
 
@@ -345,8 +341,6 @@ Please see separate testing.md for full details.
 The following sites were used for information/code:
 
 - https://stackoverflow.com/questions/21517879/python-pil-resize-all-images-in-a-folder - Used for guidance on converting image size. 
-
-####
 
 ## Acknowledgements
 

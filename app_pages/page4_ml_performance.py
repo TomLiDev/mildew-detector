@@ -4,11 +4,14 @@ import pandas as pd
 from matplotlib.image import imread
 from src.machine_learning.evaluate_clf import load_test_evaluation
 
-
-st.write("Page 4")
-
 def page4_create():
-    st.write("Page 4 function test")
+    st.write("ML Performance")
+
+    st.info(
+        f"The first figure below shows how the original leaf images dataset"
+        f"were split into train, validation and test groups to facilitate the"
+        f"development of a ML system with sufficient predictive accuracy."
+    )
 
     version = 'v2'
 
@@ -17,6 +20,12 @@ def page4_create():
     labels_distribution = plt.imread(f"outputs/{version}/labels_distribution.png")
     st.image(labels_distribution, caption='Labels Distribution on Train, Validation and Test Sets')
     st.write("---")
+
+    st.info(
+        f"The figure below shows how the ML system was gradually trained and"
+        f"improved over time, this is show by the increase in accuracy and"
+        f"reduction of loss"
+    )
 
 
     st.write("### Model History")

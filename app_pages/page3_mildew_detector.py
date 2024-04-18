@@ -3,8 +3,6 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 
-st.write("Page 3")
-
 from src.data_management import download_dataframe_as_csv
 from src.machine_learning.predictive_analysis import (
                                                     load_model_and_predict,
@@ -13,7 +11,7 @@ from src.machine_learning.predictive_analysis import (
                                                     )
 
 def page3_create():
-    st.write("Page 3 function test")
+    st.write("Mildew Detector")
 
     images_buffer = st.file_uploader('Upload leaf images. You may select more than one.',
                                         type='png',accept_multiple_files=True)
