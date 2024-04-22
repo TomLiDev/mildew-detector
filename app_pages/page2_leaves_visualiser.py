@@ -12,11 +12,6 @@ import random
 def page2_create():
     st.write("Leaves Visualiser")
 
-    agree = st.checkbox('I agree')
-
-    if agree:
-        st.write('Great!')
-
     st.write("Leaves Visualiser")
     version = 'v2'
 
