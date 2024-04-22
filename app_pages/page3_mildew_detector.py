@@ -29,6 +29,7 @@ def page3_create():
             st.write("Just before resize")
             resized_img = resize_input_image(img=img_pil, version=version)
             st.write("Just after resize")
+            st.write("Second image test", resized_img.shape)
             pred_proba, pred_class = load_model_and_predict(resized_img, version=version)
             st.write("Just after pred_proba")
             plot_predictions_probabilities(pred_proba, pred_class)
