@@ -39,6 +39,7 @@ def resize_input_image(img, version):
     """
     version = 'v2'
     image_shape = load_pkl_file(file_path=f"outputs/{version}/image_shape.pkl")
+    st.write(image_shape)
     img_resized = img.resize((image_shape[1], image_shape[0]), Image.LANCZOS)
     my_image = np.expand_dims(img_resized, axis=0)/255
 
@@ -57,7 +58,7 @@ def load_model_and_predict(my_image, version):
     target_map = {v: k for k, v in {'Powdery_Mildew': 0, 'Healthy': 1}.items()}
     pred_class = target_map[pred_proba > 0.5]
     if pred_class == target_map[0]:
-        pred_proba = 1 - pred_proba
+       pred_proba = 1 - pred_proba
 
     st.write(
         f"The predictive analysis indicates the sample leaf is "

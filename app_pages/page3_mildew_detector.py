@@ -26,8 +26,11 @@ def page3_create():
             st.image(img_pil, caption=f"Image Size: {img_array.shape[1]}px width x {img_array.shape[0]}px height")
 
             version = 'v2'
+            st.write("Just before resize")
             resized_img = resize_input_image(img=img_pil, version=version)
+            st.write("Just after resize")
             pred_proba, pred_class = load_model_and_predict(resized_img, version=version)
+            st.write("Just after pred_proba")
             plot_predictions_probabilities(pred_proba, pred_class)
 
             df_report = df_report.append({"Name":image.name, 'Result': pred_class },
