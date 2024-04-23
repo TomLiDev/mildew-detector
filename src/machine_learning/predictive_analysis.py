@@ -9,15 +9,17 @@ from src.data_management import load_pkl_file
 
 def plot_predictions_probabilities(pred_proba, pred_class):
     """
-    Plot prediction probability results
+    Plot prediction probability results, np.float32 types need to converted
+    to float64 otherwise the function returns a value error
     """
-
     prob_per_class = pd.DataFrame(
         data=[0, 0],
         index={'Infected': 0, 'Uninfected': 1}.keys(),
         columns=['Probability']
     )
-    prob_per_class.loc[pred_class] = pred_proba
+    new = np.float64(pred_proba)
+    prob_per_class.loc[pred_class] = new
+
     for x in prob_per_class.index.to_list():
         if x not in pred_class:
             prob_per_class.loc[x] = 1 - pred_proba
@@ -39,15 +41,10 @@ def resize_input_image(img, version):
     """
     version = 'v2'
     image_shape = load_pkl_file(file_path=f"outputs/{version}/image_shape.pkl")
-    st.write(image_shape)
-    st.write("shape test inside resize function", image_shape[1], image_shape[0])
     img_resized = img.resize((image_shape[1], image_shape[0]))
-    st.write("2nd shape test inside resize function", img_resized)
-    st.write("image mode", img_resized.mode)
 
     img_to_use = img_resized.convert('RGB')
     my_image = np.expand_dims(img_to_use, axis=0)/255
-    st.write("3rd", my_image.shape)
 
     return my_image
 
