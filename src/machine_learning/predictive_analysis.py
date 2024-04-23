@@ -26,12 +26,23 @@ def plot_predictions_probabilities(pred_proba, pred_class):
     prob_per_class = prob_per_class.round(3)
     prob_per_class['Diagnostic'] = prob_per_class.index
 
+    st.write(pred_class, "test")
+
+    if pred_class == 'Infected':
+        colour = 'red'
+    else:
+        colour = 'green'
+    
+    st.write(colour)
+
     fig = px.bar(
         prob_per_class,
         x='Diagnostic',
         y=prob_per_class['Probability'],
         range_y=[0, 1],
-        width=600, height=300, template='seaborn')
+        width=600, height=300,
+        title=f"Prediction Probability on {pred_class} Leaf Identification")
+    fig.update_traces(marker_color=colour)
     st.plotly_chart(fig)
 
 
