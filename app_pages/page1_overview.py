@@ -1,9 +1,9 @@
 import streamlit as st
 
 def page1_create():
-    st.write("Project Summary")
+    st.write("## Project Summary")
     st.write(
-        "This project was undertaken with the aim of providing data analysis"
+        "This project was undertaken with the aim of providing data analysis "
         "and a machine learning system which was able to solve the following "
         "business requirements."
         )
