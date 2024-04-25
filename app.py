@@ -15,6 +15,6 @@ app.app_page("Project Overview", page1_create)
 app.app_page("Leaves Visualiser", page2_create)
 app.app_page("Mildew Detector", page3_create)
 app.app_page("ML Performance", page4_create)
-app.app_page("Project Hypothesis", page5_create)
+app.app_page("Project Hypotheses", page5_create)
 
 app.run()
