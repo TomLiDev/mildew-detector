@@ -11,32 +11,30 @@ def page1_create():
     st.info(
         f"Business Requirements \n\n"
 
-        f"1 - The client is interested in conducting a study to visually" 
+        f"1 - Farmy & Foods are interested in conducting a study to visually" 
         f"differentiate a healthy cherry leaf from one with powdery mildew.\n\n"
-        f"2 - The client is interested in predicting if a cherry leaf is"
+        f"2 - Farmy & Foods are interested in predicting if a cherry leaf is"
         f"healthy or contains powdery mildew."
     )
 
     st.write("Project Hypothesis and Validation")
-    st.write(
-        f"Null Hypothesis - There will be no significant visual difference "
-        f"between powdery mildew-infected and healthy cherry leaves."
-    )
-    st.write(
-        f"Alternative Hypothesis - There will be a significant visual "
-        f"difference between powdery mildew-infected and healthy cherry leaves" 
-        f"facilitating visual identification and prediction of whether or not"
-        f"a cherry leaf is infected with powdery mildew."
-    )
-    st.write(
-        f"Validation - A machine learning system will be used to accept or "
-        f"reject the project hypotheses. If, after sufficient relevant"
-        f"training and fitting to leaf image data, a machine learning system"
-        f"cannot accurately visually differentiate between a healthy cherry"
-        f"leaf and one infected with powdery mildew then the alternative"
-        f"hypothesis will be rejected and the null hypothesis accepted. If a"
-        f"machine learning system can predict whether or not a leaf is healthy"
-        f"or infected with powdery mildew with an accuracy greater than 98%"
-        f"the null hypothesis will be rejected and the alternative hypothesis"
-        f"will be accepted."
-    )
+    if st.checkbox("Show Project Hypotheses and Validation Criteria"):
+
+        st.info(
+            f"1 - There will be a significant visual difference between healthy "
+            f"and powdery mildew infected leaves which facilitates"
+            f"differentiation between the two. \n"
+            f"2 - Powdery mildew infected leaves will display a greater amount "
+            f"of white/grey on their surfaces. \n"
+            f"3 - Healthy leaves will exhibit a largely green surface" 
+        )
+
+        st.info(
+            f"## Validation \n"
+            f"Validation on whether or not the hypotheses are correct will "
+            f"be determined by whether or not a Machine Learning system can "
+            f"accurately, to a theshold of 98%, predict whether ot not a leaf "
+            f"is infected with powdery mildew or healhty, based on images and"
+            f"specifically the colouring of the pixels within the leaf image"
+            f"presented."
+        )
