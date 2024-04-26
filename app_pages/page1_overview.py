@@ -1,5 +1,10 @@
 import streamlit as st
 
+"""
+Function below defines the specific text and options displayed on page 1,
+the project overview page.
+"""
+
 def page1_create():
     st.write("## Project Summary")
     st.write(

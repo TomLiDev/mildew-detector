@@ -9,6 +9,11 @@ from matplotlib.image import imread
 import itertools
 import random
 
+"""
+Page2_create function below defines text shown on the leaf visulisation page
+and what is displayed if the various check boxes are checked.
+"""
+
 def page2_create():
     st.write("Leaves Visualiser")
 
@@ -43,10 +48,13 @@ def page2_create():
 
 
 def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
+    """
+    This is the function for creating the image montage specifically.
+    """
     sns.set_style("white")
     labels = os.listdir(dir_path)
 
-    # subset the class you are interested to display
+    # subset the class to display
     if label_to_display in labels:
 
         # checks if your montage space is greater than subset size

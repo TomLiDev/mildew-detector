@@ -1,5 +1,10 @@
 import streamlit as st
 
+"""
+All app pages inherit from the MultiPage class below giving uniform look
+and feel across the dashboard pages.
+"""
+
 class MultiPage:
 
 

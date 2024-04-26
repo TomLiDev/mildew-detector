@@ -4,6 +4,10 @@ import pandas as pd
 from matplotlib.image import imread
 from src.machine_learning.evaluate_clf import load_test_evaluation
 
+"""
+Page4_create function below defines text and layout and presentation of figures
+displayed on the ML performance page.
+"""
 def page4_create():
     st.write("## ML Performance")
 
@@ -22,7 +26,7 @@ def page4_create():
     st.image(labels_distribution, caption='Labels Distribution on Train, Validation and Test Sets')
     st.write("---")
 
-    #This section holds the pie chart showing distribution of images across
+    #This section displays the pie chart showing distribution of images across
     #train, test and validation data sets. 
 
     labels_distribution = plt.imread(f"outputs/{version}/mildew_labels_distribution_pie.png")

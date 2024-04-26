@@ -10,24 +10,34 @@ from src.machine_learning.predictive_analysis import (
                                                     plot_predictions_probabilities
                                                     )
 
+"""
+Page3_create function below defines text and layout displayed on the mildew
+detection page
+"""
 def page3_create():
     st.write("Mildew Detector")
 
     images_buffer = st.file_uploader('Upload leaf images. You may select more than one.',
                                         type='png',accept_multiple_files=True)
 
+    #below code is triggered when a user uploads an image on the widget
     if images_buffer is not None:
         df_report = pd.DataFrame([])
         for image in images_buffer:
 
+            #below 4 lines just show info about the image to the user
             img_pil = (Image.open(image))
             st.info(f"Leaf Image Sample: **{image.name}**")
             img_array = np.array(img_pil)
             st.image(img_pil, caption=f"Image Size: {img_array.shape[1]}px width x {img_array.shape[0]}px height")
 
             version = 'v2'
+            #Below function call resizes uploaded image to dataset average
             resized_img = resize_input_image(img=img_pil, version=version)
+            #Below function call actually performs the prediction/
+            #classification of the uploaded image
             pred_proba, pred_class = load_model_and_predict(resized_img, version=version)
+            #Below function call displays the predictions made by the above
             plot_predictions_probabilities(pred_proba, pred_class)
 
             df_report = df_report.append({"Name":image.name, 'Result': pred_class },
