@@ -2,13 +2,13 @@
 
 ## Overview
 
-The Powdery Mildew Detector is a project which is designed to detect powdery mildew in the leaves of cherry trees to assist a fictional agricultural company in managing powdery mildew in their crops to reduce loss and maximise profit. 
+The Powdery Mildew Detector Cherry is a machine learning project which is designed to detect powdery mildew in the leaves of cherry trees to assist Farmy & Foods (a fictional agricultural company) in managing powdery mildew in their crops to reduce time in quality control and maximise profit. 
 
 ![An image of the finished website on different devices](documentation/homepage-devices.PNG)
 
 Please use the link below to view the live, deployed site:
 
-[Powdery Mildew Detector - Live App](https://mushroom-mapper-6a227ba72c70.herokuapp.com/)
+[Powdery Mildew Detector - Live App](https://powdery-mildew-detector-cherry-edbe0ab1b346.herokuapp.com/)
 
 ## CONTENTS
 
@@ -49,17 +49,53 @@ The cherry plantation crop from Farmy & Foods is facing a challenge where their 
 
 To save time in this process, the IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
 
-- 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
+From this, the business requirements are:
 
-- 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+- 1 - Farmy & Foods are interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
+
+- 2 - Farmy & Foods are interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+
+## Business Case Assessment
+
+2. Is there any business requirement that can be answered with conventional data analysis?
+Yes, we can use conventional data analysis to conduct a study to visually differentiate a cherry leaf that is healthy from one that contains powdery mildew.
+
+3. Does the client need a dashboard or an API endpoint?
+The client needs a dashboard.
+
+4. What does the client consider as a successful project outcome?
+A study showing how to visually differentiate a cherry leaf that is healthy from one that contains powdery mildew.
+Also, the capability to predict if a cherry leaf is healthy or contains powdery mildew.
+
+5. Can you break down the project into Epics and User Stories?
+Information gathering and data collection.
+Data visualization, cleaning, and preparation.
+Model training, optimization and validation.
+Dashboard planning, designing, and development.
+Dashboard deployment and release.
+
+6. Ethical or Privacy concerns?
+The client provided the data under an NDA (non-disclosure agreement), therefore the data should only be shared with professionals that are officially involved in the project.
+
+7. Does the data suggest a particular model?
+The data suggests a binary classifier, indicating whether a particular cherry leaf is healthy or contains powdery mildew.
+
+8. What are the model's inputs and intended outputs?
+The input is a cherry leaf image and the output is a prediction of whether the cherry leaf is healthy or contains powdery mildew.
+
+9. What are the criteria for the performance goal of the predictions?
+We agreed with the client a degree of 97% accuracy.
+
+10. How will the client benefit?
+The client will not supply the market with a product of compromised quality. The client will gain a much faster, more scalable mechanism, to detect powdery mildew and perform quality control across multiple farms and sites.
 
 ## Project Hypotheses and Validation
 
-- Null Hypothesis - There will be no significant visual difference between powdery mildew-infected and healthy cherry leaves. 
+1 - There will be a significant visual difference between healthy and powdery mildew infected leaves which facilitates differentiation between the two.
 
-- Alternative Hypothesis - There will be a significant visual difference between powdery mildew-infected and healthy cherry leaves facilitating visual identification and prediction of whether or not a cherry leaf is infected with powdery mildew.
+2 - Powdery mildew infected leaves will display a greater amount of white/grey on their surfaces.
 
-- Validation - A machine learning system will be used to accept or reject the project hypotheses. If, after sufficient relevant training and fitting to leaf image data, a machine learning system cannot accurately visually differentiate between a healthy cherry leaf and one infected with powdery mildew then the alternative hypothesis will be rejected and the null hypothesis accepted. If a machine learning system can predict whether or not a leaf is healthy or infected with powdery mildew with an accuracy greater than 98% the null hypothesis will be rejected and the alternative hypothesis will be accepted. 
+3 - Healthy leaves will exhibit a largely green surface
 
 ## Rationale of Business Requirements to Data Visualisation and Machine Learning Tasks
 
@@ -74,12 +110,9 @@ To save time in this process, the IT team suggested an ML system that detects in
 - A machine learning model will be created and fitted to the image data to develop an ML system which is able to classify with satisfactory accuracy whether or not a leaf/leaves are infected with powdery mildew or not.
 - The treshold accuracy for this ML system is 97%.
 
-## Machine Learning Business Case
-
-
 ## User Experience Design
 
-As the project will primarily be used via a Streamlit dashboard a great deal of the design considerations for a traditional website do not apply. Elements such as the Surface Plane, concerned with fonts and images, do not apply to this project so have been omitted, however I felt it was useful to some of the aspects relating to user experience design to show a consideration for User Experience and engagement with the dashboard as far as is possible. 
+As the project will primarily be used via a Streamlit dashboard a great deal of the design considerations for a traditional website do not apply. However I felt it was useful to some of the aspects relating to user experience design to show a consideration for User Experience and engagement with the dashboard as far as is possible. 
 
 ### The Strategy Plane
 
@@ -171,15 +204,15 @@ Each page will have the same title, the project name - Powdery Mildew Detector C
 
 ![Image of the footer, found at the bottom of all pages](documentation/footer.PNG)
 
-### Project Summary/Overview
+### Project Summary/Overview Page
 
 The first page of the dashboard will be the project summary page. 
 
-This will give a brief text summary of the key points of the project, the data used, the business requirements and project hypotheses to determine if the project has been succesful or not. 
+This will give a brief text summary of the key points of the project, the data used, the business requirements, project hypotheses and validation.
 
 ![An image of the homepage on different devices](documentation/homepage-devices.PNG)
 
-### Data Visualisation
+### Leaf Visualisation Page
 
 The dashboard will contain a data visualisation page, this will summarise some of the key characteristics of the data. Specifically it will include:
 
@@ -204,7 +237,7 @@ This dashboard page will show and explain the performance of the machine learnin
 - Figures showing the evolution of the ML system through fitting
 - A figure showing the overall predictive accuracy of the ML 
 
-### Project Hypothesis and Success Page
+### Project Hypotheses and Validation Page
 
 This page will explain how the project has delivered against the business objectives and what this means for the acceptance/rejection of the project hypotheses.
 
