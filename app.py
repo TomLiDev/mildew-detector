@@ -12,9 +12,8 @@ from app_pages.page3_mildew_detector import page3_create
 from app_pages.page4_ml_performance import page4_create
 from app_pages.page5_hypothesis import page5_create
 
-"""
-Code below will create an instance of the streamlit app
-"""
+
+#Code below will create an instance of the streamlit app
 app = MultiPage(app_name="Mildew Detector and Predictor")
 
 app.app_page("Project Overview", page1_create)

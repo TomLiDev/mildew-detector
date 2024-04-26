@@ -1,11 +1,12 @@
 import streamlit as st
 
-"""
-Function below defines the specific text and options displayed on page 1,
-the project overview page.
-"""
 
 def page1_create():
+    """
+    This function defines the specific text and options displayed on page 1,
+    the project overview page.
+    """
+
     st.write("## Project Summary")
     st.write(
         "This project was undertaken with the aim of providing data analysis "
@@ -26,10 +27,10 @@ def page1_create():
     if st.checkbox("Show Project Hypotheses and Validation Criteria"):
 
         st.info(
-            f"1 - There will be a significant visual difference between healthy "
-            f"and powdery mildew infected leaves which facilitates"
+            f"1 - There will be a significant visual difference between healthy"
+            f" and powdery mildew infected leaves which facilitates"
             f"differentiation between the two. \n\n"
-            f"2 - Powdery mildew infected leaves will display a greater amount "
+            f"2 - Powdery mildew infected leaves will display a greater amount"
             f"of white/grey on their surfaces. \n\n"
             f"3 - Healthy leaves will exhibit a largely green surface" 
         )

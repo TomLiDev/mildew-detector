@@ -1,10 +1,11 @@
 import streamlit as st
 
-"""
-Page5_create function below defines text and layout of information displayed
-on the project hypotheses and validation page.
-"""
+
 def page5_create():
+    """
+    Page5_create function defines text and layout of information displayed
+    on the project hypotheses and validation page.
+    """
     st.write("## Business Value Delivered")
 
     st.info(

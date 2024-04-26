@@ -10,11 +10,12 @@ from src.machine_learning.predictive_analysis import (
                                                     plot_predictions_probabilities
                                                     )
 
-"""
-Page3_create function below defines text and layout displayed on the mildew
-detection page
-"""
+
 def page3_create():
+    """
+    Page3_create function defines text and layout displayed on the mildew
+    detection page
+    """
     st.write("Mildew Detector")
 
     images_buffer = st.file_uploader('Upload leaf images. You may select more than one.',

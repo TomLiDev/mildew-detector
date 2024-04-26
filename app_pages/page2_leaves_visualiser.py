@@ -9,17 +9,20 @@ from matplotlib.image import imread
 import itertools
 import random
 
-"""
-Page2_create function below defines text shown on the leaf visulisation page
-and what is displayed if the various check boxes are checked.
-"""
-
 def page2_create():
-    st.write("Leaves Visualiser")
+    """
+    Page2_create function below defines text shown on the leaf visulisation 
+    page and what is displayed if the various check boxes are checked.
+    """
+
+    st.write("## Leaves Visualiser")
 
     version = 'v2'
 
-    if st.checkbox("Show difference between average and variabillity for healthy leaves and those infected with Powdery Mildew"):
+    if st.checkbox(
+        f"Show difference between average and variabillity for healthy leaves"
+        f" and those infected with Powdery Mildew."
+        ):
 
         st.info(
             f"Showing images from {version}"
@@ -28,7 +31,7 @@ def page2_create():
         avg_powdery_mildew = plt.imread(f"outputs/{version}/avg_var_powdery_mildew.png")
         avg_healthy = plt.imread(f"outputs/{version}/avg_var_healthy.png")
 
-        st.image(avg_powdery_mildew, caption="Average and Variability Image of Leaf infected with Powdery Mildew")
+        st.image(avg_powdery_mildew, caption=f"Average and Variability Image of Leaf infected with Powdery Mildew")
         st.image(avg_healthy, caption="Average and Variability of healthy leaf")
     
     if st.checkbox("Show chart for differences between average health and Powdery Mildew leaves"):

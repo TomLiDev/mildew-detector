@@ -144,27 +144,34 @@ The below is a list of the user stories linked and required to achieve completio
 
 #### Epics
 
-The project had 4 Epics which encompass the main development effort for building this powdery mildew detector. Each epic includes some key elements with more detailed user stories explained below. 
+The project had 4 Epics which encompass the main development effort for building this powdery mildew detector. Each epic includes some key elements with more detailed user stories explained below.
 
-EPIC 1 - Project Set Up
+EPIC 1 - Information Gathering and Data Collection
+
+- Define Business Requirements
+- Create Business Case Assessment
+- Identify and Collect Data for the Project
+- Create Rationale of Business Requirements to Data Visualisation and ML Tasks
+
+EPIC 2 - Project Set Up and Documentation
 
 This epic incorporates the user stories required for the initial project setup and initial deployment. This epic and the user stories within was the first to be completed.
 
-- Create project repo and install necessary libraries and requirements
+- Install necessary libraries and requirements
 - Ensure Kaggle json files and other sensitive information kept secure
 - Successfully deploy via Heroku early prior to main development effort
 - Create and maintain project documentation
 
-EPIC 2 - Data Collection and Visualisation
+EPIC 3 - Data Collection, Preparation and Visualisation
 
 This epic incorporates the work and user stories required to collect the necessary data, clean the data, analyse, visualise and split the data in preparation for use by a machine learning system.  
 
 - Add Kaggle json and import necessary data
 - Clean data, check for missing values, convert data where necessary etc
 - Visualise data
-- Split data into train, test and validate sets
+- Split data into train, test and validate sets and create figures to display the data split graphically
 
-EPIC 3 - Create Machine Learning System
+EPIC 4 - Create and Evaluate Machine Learning System
 
 This epic incorporates the work to create, fit and evaluate the machine learning system based on the prepared data:
 
@@ -172,7 +179,7 @@ This epic incorporates the work to create, fit and evaluate the machine learning
 - Fit ML pipeline to data 
 - Evaluate the ML pipeline for predictive performance against the business objectives
 
-EPIC 4 - Create Dashboard
+EPIC 5 - Create Streamlit Dashboard
 
 This epic includes the user stories which define the business user facing requirements, so that the ML project and key deliverables can be interacted with and users can engage and make use of the functionality offered. 
 

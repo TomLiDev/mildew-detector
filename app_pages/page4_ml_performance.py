@@ -4,11 +4,12 @@ import pandas as pd
 from matplotlib.image import imread
 from src.machine_learning.evaluate_clf import load_test_evaluation
 
-"""
-Page4_create function below defines text and layout and presentation of figures
-displayed on the ML performance page.
-"""
+
 def page4_create():
+    """
+    Page4_create function defines text and layout and presentation of figures
+    displayed on the ML performance page.
+    """
     st.write("## ML Performance")
 
     st.info(

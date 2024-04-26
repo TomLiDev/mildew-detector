@@ -1,12 +1,10 @@
 import streamlit as st
 
-"""
-All app pages inherit from the MultiPage class below giving uniform look
-and feel across the dashboard pages.
-"""
-
 class MultiPage:
-
+    """
+    All app pages inherit from the MultiPage class giving uniform look
+    and feel across the dashboard pages.
+    """
 
     def __init__(self, app_name) -> None:
         self.pages = []
