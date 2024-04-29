@@ -34,7 +34,7 @@ def page2_create():
         st.image(avg_powdery_mildew, caption=f"Average and Variability Image of Leaf infected with Powdery Mildew")
         st.image(avg_healthy, caption="Average and Variability of healthy leaf")
     
-    if st.checkbox("Show chart for differences between average health and Powdery Mildew leaves"):
+    if st.checkbox("Show figures for differences between average health and Powdery Mildew leaves"):
         diff_between_avgs = plt.imread(f"outputs/{version}/avg_diff.png")
         st.image(diff_between_avgs, caption='Difference between average images')
 

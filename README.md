@@ -382,6 +382,10 @@ The following sites were used for information/code:
 
 - https://stackoverflow.com/questions/21517879/python-pil-resize-all-images-in-a-folder - Used for guidance on converting image size. 
 
+- https://www.datacamp.com/tutorial/line-plots-in-matplotlib-with-python - Used for customising and creating line plots.
+
+- https://stackoverflow.com/questions/20457038/how-to-round-to-2-decimals-with-python - Used for reference to rounding figures
+
 ## Acknowledgements
 
 -  - My Code Institute Mentor

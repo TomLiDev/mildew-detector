@@ -30,9 +30,9 @@ def page1_create():
             f"1 - There will be a significant visual difference between healthy"
             f" and powdery mildew infected leaves which facilitates"
             f"differentiation between the two. \n\n"
-            f"2 - Powdery mildew infected leaves will display a greater amount"
-            f"of white/grey on their surfaces. \n\n"
-            f"3 - Healthy leaves will exhibit a largely green surface" 
+            f"2 - Powdery mildew infected leaves will display a lower amount of"
+            f" green on their surfaces. \n\n"
+            f"3 - Healthy leaves will exhibit a greater amount of green" 
         )
 
         st.info(
