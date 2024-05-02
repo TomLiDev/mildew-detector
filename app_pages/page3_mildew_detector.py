@@ -26,7 +26,7 @@ def page3_create():
         df_report = pd.DataFrame([])
         for image in images_buffer:
 
-            #below 4 lines just show info about the image to the user
+            #below 4 lines show info about the image to the user
             img_pil = (Image.open(image))
             st.info(f"Leaf Image Sample: **{image.name}**")
             img_array = np.array(img_pil)
@@ -47,4 +47,5 @@ def page3_create():
         if not df_report.empty:
             st.success("Analysis Report")
             st.table(df_report)
-            st.markdown(download_dataframe_as_csv(df_report), unsafe_allow_html=True)            
+            st.markdown(download_dataframe_as_csv(df_report), unsafe_allow_html=True)
+    st.write("---")         

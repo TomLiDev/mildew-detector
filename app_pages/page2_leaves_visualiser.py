@@ -33,15 +33,23 @@ def page2_create():
 
         st.image(avg_powdery_mildew, caption=f"Average and Variability Image of Leaf infected with Powdery Mildew")
         st.image(avg_healthy, caption="Average and Variability of healthy leaf")
+
     
     if st.checkbox("Show figures for differences between average health and Powdery Mildew leaves"):
         diff_between_avgs = plt.imread(f"outputs/{version}/avg_diff.png")
         st.image(diff_between_avgs, caption='Difference between average images')
+    
+    st.info(
+            f"As shown in the figures above, leaves infected with powdery "
+            f"generally show a greater amount of white pixels in the images "
+            f"with the healthy leaves showing a much more solid, overall "
+            f"green colouring. This is in support of the project hypotheses."
+        )
 
     if st.checkbox("Image Montage"): 
         st.write("* To refresh the montage, click on the 'Create Montage' button")
         my_data_dir = 'inputs/mildew_dataset/cherry-leaves/resized'
-        labels = os.listdir(my_data_dir+ '/validation')
+        labels = os.listdir(my_data_dir+ '/validation/')
         label_to_display = st.selectbox(label="Select label", options=labels, index=0)
         if st.button("Create Montage"):      
             image_montage(dir_path= my_data_dir + '/validation',
@@ -97,3 +105,4 @@ def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
     else:
         print("The label you selected doesn't exist.")
         print(f"The existing options are: {labels}")
+    st.write("---")

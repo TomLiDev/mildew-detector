@@ -42,3 +42,4 @@ def page1_create():
             f"accurately, to a theshold of 98%, predict whether a leaf is "
             f"healthy or infected with powdery mildew."
         )
+    st.write("---")

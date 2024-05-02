@@ -22,9 +22,20 @@ def page5_create():
         f"provided to consumers, keeping standards high, protecting the "
         f"businesses reputation and ensuring ongoing revenue."
     )
-    st.write("## Project Hypotheses and Validation")
+    st.write("---")
 
-    if st.checkbox("Show Green Pixel Analysis"):
+    st.write("## Project Hypotheses and Validation")
+    if st.checkbox('Show Green Pixel Analysis'):
+        st.info(
+            f"As shown in the figures below, the healthy leaf images show "
+            f"a significantly higher number of green pixels than those "
+            f"images where the leaf is infected with powdery mildew. This "
+            f"is clear support for the project hypotheses.  \n\n"
+            f"The asterisk on the Number of Pixels Y axis, is because the "
+            f"value is not exactly the number of green pixels per image, but "
+            f"a simplified, representative value which is displayed more "
+            f"easily on the figure axis."
+        )
         healthy = plt.imread(f"outputs/{version}/healthy_pixels.png")
         mildew = plt.imread(f"outputs/{version}/powdery_mildew_pixels.png")
 
@@ -34,7 +45,7 @@ def page5_create():
     st.write("### Hypothesis 1:")
     st.write(
         f"There will be a significant visual difference between healthy "
-        f"and powdery mildew infected leaves which facilitates"
+        f"and powdery mildew infected leaves which facilitates "
         f"differentiation between the two. \n\n"
         f"Was this Hypothesis correct?"
     )
@@ -67,6 +78,7 @@ def page5_create():
 
     st.success(
         f"Yes. \n\n"
-        f"The lack of white/grey pixels in images of healthy leaves clearly "
-        f"differentiates them from those infected with powdery mildew."
+        f"The greater number of green pixels in images of healthy leaves "
+        f"clearly differentiates them from those infected with powdery mildew."
     )
+    st.write("---")
