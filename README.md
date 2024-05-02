@@ -68,10 +68,10 @@ Also, the capability to predict if a cherry leaf is healthy or contains powdery 
 
 5. Can you break down the project into Epics and User Stories?
 Information gathering and data collection.
-Data visualization, cleaning, and preparation.
-Model training, optimization and validation.
-Dashboard planning, designing, and development.
-Dashboard deployment and release.
+Project Set Up and Documentation
+Data collection, preparation and visualisation.
+Model creation and evaluation
+Dashboard design and creation
 
 6. Ethical or Privacy concerns?
 The client provided the data under an NDA (non-disclosure agreement), therefore the data should only be shared with professionals that are officially involved in the project.
@@ -92,9 +92,9 @@ The client will not supply the market with a product of compromised quality. The
 
 1 - There will be a significant visual difference between healthy and powdery mildew infected leaves which facilitates differentiation between the two.
 
-2 - Powdery mildew infected leaves will display a greater amount of white/grey on their surfaces.
+2 - Powdery mildew infected leaves will display less green on their surfaces, due to greater white/grey areas from powdery mildew.
 
-3 - Healthy leaves will exhibit a largely green surface
+3 - Healthy leaves will exhibit a largely green surface. 
 
 ## Rationale of Business Requirements to Data Visualisation and Machine Learning Tasks
 
@@ -104,7 +104,7 @@ The client will not supply the market with a product of compromised quality. The
 - The dashboard will display the contrast between an average healthy leaf and an average leaf infected with powdery mildew.
 - The dashboard will have the ability to provide an image montage featuring healthy and powdery mildew infected leaves to give users a snapshot of the image data used.
 
-- Business Requirements 2 - ML Prediction/Identification
+- Business Requirements 2 - ML Prediction/Classification
 
 - A machine learning model will be created and fitted to the image data to develop an ML system which is able to classify with satisfactory accuracy whether or not a leaf/leaves are infected with powdery mildew or not.
 - The treshold accuracy for this ML system is 97%.
@@ -115,13 +115,15 @@ As the project will primarily be used via a Streamlit dashboard a great deal of 
 
 ### The Strategy Plane
 
-#### Site Goals
+#### Project Goals
 
-This application is primarily focused on providing and meeting the following key objectives, based on the business requirements:
+This application is primarily focused on providing the following key objectives, based on the business requirements:
 
 1) A study to visually differentiate a cherry leaf that is healthy from one that contains powdery mildew.
 
-2) An application which can predict if a cherry leaf is healthy or contains powdery mildew.
+2) The ability to accurately predict if a cherry leaf is healthy or contains powdery mildew.
+
+3) A dashboard which allows a non-technical business user to interact with the findings of the visual study and independently make use of the machine learning system to make predictions on leaf images.
 
 #### Agile Planning
 
@@ -129,12 +131,11 @@ This application was designed and built in line with Agile methodologies, with s
 
 Each feature was assigned an epic and individually prioritised following the MoSCoW rating system, being designated Must have, Should have, Could have and Won't have. These designations were assigned based on perceived requirements of the business and the effort required to develop them. Features were developed with Must have's being completed first, and so on, to ensure that the most useful and fundamental aspects of the application and dashboard were built first, with 'bells and whistles' features being completed later depending on the time left. 
 
-![An Image of the mushroom mappers kanban board in progress](documentation/kanban-progress.PNG)
+![An Image of the Mildew Detector kanban board in progress](documentation/mildew-kanban.PNG)
 
 A kanban board was used to track the progress and manage the development lifecycle, the completed board can be viewed here:
 
-https://github.com/users/TomLiDev/projects/2/views/1
-
+https://github.com/users/TomLiDev/projects/3/views/1
 
 #### User Stories
 
@@ -143,7 +144,7 @@ The below is a list of the user stories linked and required to achieve completio
 
 #### Epics
 
-The project had 4 Epics which encompass the main development effort for building this powdery mildew detector. Each epic includes some key elements with more detailed user stories explained below.
+The project had 5 Epics which encompass the main development effort for building this powdery mildew detector. Each epic includes some key elements with more detailed user stories explained below.
 
 EPIC 1 - Information Gathering and Data Collection
 
@@ -259,17 +260,11 @@ As all the pages will follow a similar Streamlit dashboard design the requiremen
 
 [Homepage Wireframes](documentation/homepage-wireframe.PNG)
 
-[Create Find Page Wireframe](documentation/create-find-wireframe.PNG)
-
-[View Finds Page Wireframe](documentation/view-finds-wireframe.PNG)
-
-[Find (Individual) Detail Wireframe](documentation/find-detail-wireframe.PNG)
-
-[Error page Wireframe](documentation/error-page-wireframe.PNG)
-
 #### Security
 
-They key security element of this project is the protection of the developers Kaggle json. This file will be carefully managed to ensure it is not exposed or committed ot the repository.
+They key security elements of this project are the protection of the developers Kaggle json. This file will be carefully managed to ensure it is not exposed or committed ot the repository.
+
+The other is the potentially sensitive leaf image data provided by the client under a non-disclosure agreement. Such data could be damaging to Farmy & Foods if it fell into the hands of a competitor, local media or member of the public. Therefore care will be taken to ensure that this data is not unnecessarily exposed. 
 
 ## Future Implementations/Plans
 
@@ -331,7 +326,7 @@ This was website was deployed using Heroku. Instructions to do this are:
 
 1. Go to Github and Log in (or sign up).
 
-2. Find the repository for this project, TomLiDev/mushroom-mappers.
+2. Find the repository for this project, TomLiDev/mildew-detector.
 
 3. Copy, (or clone as below) the code from the repository into your IDE.
 
@@ -343,15 +338,13 @@ This was website was deployed using Heroku. Instructions to do this are:
 
 7. Enter a name.
 
-8. From the "Add buildpack" option, add the Python buildpack and save
-
-9. Add the node.js buildpack and save.
-
 10. Select Github from the deployment method.
 
 11. Find the repository name you have given to your version of this project, click connect. 
 
 12. Scroll to the next section and select automatic deploys, choosing to enable automatic deploys.
+
+13. Ensure that unnecessary files are added to .slugignore so the slug does not exceed the max slug size on heroku.
 
 13. Save and commit your code in your IDE.
 
@@ -364,7 +357,7 @@ This was website was deployed using Heroku. Instructions to do this are:
 
 1. Log in (or sign up) to Github.
 
-2. Go to the repository for this project, TomLiDev/mushroom-mappers.
+2. Go to the repository for this project, TomLiDev/mildew-detector.
 
 3. Click the Fork button in the top right corner.
 
@@ -372,7 +365,7 @@ This was website was deployed using Heroku. Instructions to do this are:
 
 1. Log in (or sign up) to GitHub.
 
-2. Go to the repository for this project, TomLiDev/mushroom-mappers.
+2. Go to the repository for this project, TomLiDev/mildew-detector.
 
 3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 

@@ -53,3 +53,20 @@ Navigation option for Project Overview Page|Redirects to Project Overview Page|C
 Navigation option for Leaf Visualiser Page|Redirects to Leaf Visualisation page|Clicked Leaf Visualisation radio button option|Redirected to Leaf Visualisation page|Pass
 Navigation option for Mildew Detector Page|Redirects to Mildew Detector page|Clicked Mildew Detector radio button option|Redirected to Mildew Detector page|Pass
 Navigation option for Project Hypotheses Page|Remains to Project Hypothese page|Clicked Project Hypothese radio button option|Remained to Project Hypothese page|Pass
+
+### ML Performance Page
+
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+Navigation option for Project Overview Page|Redirects to Project Overview Page|Clicked Project Overview radio button option|Redirected to Project Overview Page|Pass
+Navigation option for Leaf Visualiser Page|Redirects to Leaf Visualisation page|Clicked Leaf Visualisation radio button option|Redirected to Leaf Visualisation page|Pass
+Navigation option for Mildew Detector Page|Redirects to Mildew Detector page|Clicked Mildew Detector radio button option|Redirected to Mildew Detector page|Pass
+Navigation option for Project Hypotheses Page|Redirects to Project Hypothese page|Clicked Project Hypothese radio button option|Remained to Project Hypothese page|Pass
+Checkbox to display green pixel analysis|Displays figures and text for green pixel analysis|Clicked display green pixel analysis checkbox|Figures and text for green pixel analysis displayed|Pass
+
+## Bugs
+
+### Resolved Bugs
+
+1. 
+
