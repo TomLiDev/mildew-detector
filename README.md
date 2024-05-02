@@ -297,7 +297,7 @@ As this project is usable/visible via a Streamlit dashboard, modern accessibilit
 
 Python and Jupyter Notebooks. Markdown is used in the project documentation and within the Jupyter notebooks. 
 
-### Libraries and External Sources
+### Third Party and External Sources
 
 - Git - Version control.
 
@@ -312,6 +312,17 @@ Python and Jupyter Notebooks. Markdown is used in the project documentation and 
 - W3C Validators - For checking validity of HTML and CSS.
 
 - Am I Responsive? - To create images of website on range of device screens.
+
+### Libraries Used
+
+- pandas
+- seaborn
+- numpy
+- matplotlib
+- plotly
+- joblib
+- tensorflow
+- keras
 
 ## Deployment
 
@@ -388,6 +399,6 @@ The following sites were used for information/code:
 
 ## Acknowledgements
 
--  - My Code Institute Mentor
+-  My Code Institute Mentor
 
 - My family - For your help in testing and providing feedback.
