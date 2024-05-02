@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Powdery Mildew Detector Cherry is a machine learning project which is designed to detect powdery mildew in the leaves of cherry trees to assist Farmy & Foods (a fictional agricultural company) in managing powdery mildew in their crops to reduce time in quality control and maximise profit. 
+The Powdery Mildew Detector Cherry is a machine learning project which is designed to detect powdery mildew in the leaves of cherry trees to assist Farmy & Foods (a fictional agricultural company) in managing powdery mildew in their crops to reduce time in quality control, maintain product standards and maximise profit. 
 
 ![An image of the finished website on different devices](documentation/homepage-devices.PNG)
 
@@ -40,7 +40,6 @@ Please use the link below to view the live, deployed site:
   - [Testing](#testing)
   - [Credits](#credits)
     - [Code Used](#code-used)
-      - [](#)
   - [Acknowledgements](#acknowledgements)
 
 ## Business Requirements
@@ -313,6 +312,8 @@ Python and Jupyter Notebooks. Markdown is used in the project documentation and 
 
 - Am I Responsive? - To create images of website on range of device screens.
 
+- Kaggle - Project Data
+
 ### Libraries Used
 
 - pandas
@@ -395,7 +396,9 @@ The following sites were used for information/code:
 
 - https://www.datacamp.com/tutorial/line-plots-in-matplotlib-with-python - Used for customising and creating line plots.
 
-- https://stackoverflow.com/questions/20457038/how-to-round-to-2-decimals-with-python - Used for reference to rounding figures
+- https://stackoverflow.com/questions/20457038/how-to-round-to-2-decimals-with-python - Used for reference to rounding figures.
+
+- https://stackoverflow.com/questions/28576203/how-to-count-the-number-of-pixels-of-a-certain-color-in-python - Used for guidance on creating a function to count number of coloured pixels.
 
 ## Acknowledgements
 
