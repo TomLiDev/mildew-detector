@@ -39,7 +39,7 @@ def page1_create():
             f"## Validation \n"
             f"Validation on whether or not the hypotheses are correct will "
             f"be determined by whether or not a Machine Learning system can "
-            f"accurately, to a theshold of 98%, predict whether a leaf is "
+            f"accurately, to a theshold of 97%, predict whether a leaf is "
             f"healthy or infected with powdery mildew."
         )
     st.write("---")

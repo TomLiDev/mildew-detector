@@ -72,7 +72,6 @@ def load_model_and_predict(my_image, version):
     target_map = {v: k for k, v in {'Uninfected': 0, 'Infected': 1}.items()}
     pred_class = target_map[pred_proba > 0.5]
     if pred_class == target_map[0]:
-       st.write("Pred text test", pred_class, pred_proba)
        pred_proba = 1 - pred_proba
 
     st.write(

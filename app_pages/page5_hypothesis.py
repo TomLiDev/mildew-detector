@@ -54,7 +54,7 @@ def page5_create():
         f"Yes. \n\n"
         f"A clear visual difference between healthy and powdery mildew "
         f"leaves facilitates an ML model which is able to accurately predict "
-        f"the difference with greater than 98% accuracy."
+        f"the difference with greater than 97% accuracy."
     )
 
     st.write("### Hypothesis 2:")
