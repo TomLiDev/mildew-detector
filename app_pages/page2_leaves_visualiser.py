@@ -12,7 +12,8 @@ import random
 def page2_create():
     """
     Page2_create function below defines text shown on the leaf visulisation 
-    page and what is displayed if the various check boxes are checked.
+    page and retrieves figures from the relevant version folder if boxes are
+    checked.
     """
 
     st.write("## Leaves Visualiser")
@@ -28,16 +29,21 @@ def page2_create():
             f"Showing images from {version}"
         )
 
-        avg_powdery_mildew = plt.imread(f"outputs/{version}/avg_var_powdery_mildew.png")
+        avg_powdery_mildew = plt.imread(f"outputs/{version}/"
+        f"avg_var_powdery_mildew.png")
         avg_healthy = plt.imread(f"outputs/{version}/avg_var_healthy.png")
 
-        st.image(avg_powdery_mildew, caption=f"Average and Variability Image of Leaf infected with Powdery Mildew")
-        st.image(avg_healthy, caption="Average and Variability of healthy leaf")
+        st.image(avg_powdery_mildew, caption=f"Average and Variability Image "
+        f"of Leaf infected with Powdery Mildew")
+        st.image(avg_healthy, caption=f"Average and Variability Image of "
+                                      f"healthy leaf")
 
     
-    if st.checkbox("Show figures for differences between average health and Powdery Mildew leaves"):
+    if st.checkbox(f"Show figures for differences between average health and "
+                   f"Powdery Mildew leaves"):
         diff_between_avgs = plt.imread(f"outputs/{version}/avg_diff.png")
-        st.image(diff_between_avgs, caption='Difference between average images')
+        st.image(diff_between_avgs, caption=f"Difference between average "
+                                            f"images")
     
     st.info(
             f"As shown in the figures above, leaves infected with powdery "
@@ -47,10 +53,12 @@ def page2_create():
         )
 
     if st.checkbox("Image Montage"): 
-        st.write("* To refresh the montage, click on the 'Create Montage' button")
+        st.write(f"* To refresh the montage, click on the 'Create Montage' "
+                 f"button")
         my_data_dir = 'inputs/mildew_dataset/cherry-leaves/resized'
         labels = os.listdir(my_data_dir + '/validation')
-        label_to_display = st.selectbox(label="Select label", options=labels, index=0)
+        label_to_display = st.selectbox(label="Select label", options=labels,
+                                        index=0)
         if st.button("Create Montage"):      
             image_montage(dir_path= my_data_dir + '/validation',
                         label_to_display=label_to_display,
@@ -68,7 +76,7 @@ def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
     # subset the class to display
     if label_to_display in labels:
 
-        # checks if your montage space is greater than subset size
+        # checks if montage space is greater than subset size
         # how many images in that folder
         images_list = os.listdir(dir_path+'/'+ label_to_display)
         if nrows * ncols < len(images_list):
@@ -87,20 +95,19 @@ def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
         plot_idx = list(itertools.product(list_rows,list_cols))
 
 
-        # create a Figure and display images
+        #This creates the figure and displays the images
         fig, axes = plt.subplots(nrows=nrows,ncols=ncols, figsize=figsize)
         for x in range(0,nrows*ncols):
             img = imread(dir_path + '/' + label_to_display + '/' + img_idx[x])
             img_shape = img.shape
             axes[plot_idx[x][0], plot_idx[x][1]].imshow(img)
-            axes[plot_idx[x][0], plot_idx[x][1]].set_title(f"Width {img_shape[1]}px x Height {img_shape[0]}px")
+            axes[plot_idx[x][0], plot_idx[x][1]].set_title(f"Width "
+            f"{img_shape[1]}px x Height {img_shape[0]}px")
             axes[plot_idx[x][0], plot_idx[x][1]].set_xticks([])
             axes[plot_idx[x][0], plot_idx[x][1]].set_yticks([])
         plt.tight_layout()
         
         st.pyplot(fig=fig)
-        # plt.show()
-
 
     else:
         print("The label you selected doesn't exist.")

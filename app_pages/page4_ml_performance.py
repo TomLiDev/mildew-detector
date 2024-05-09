@@ -23,17 +23,26 @@ def page4_create():
 
     st.write("### Train, Validation and Test Set: Labels Frequencies")
 
-    labels_distribution = plt.imread(f"outputs/{version}/labels_distribution.png")
-    st.image(labels_distribution, caption='Labels Distribution on Train, Validation and Test Sets')
+    labels_distribution = plt.imread(f"outputs/{version}/"
+                                     f"labels_distribution.png")
+    st.image(labels_distribution, caption=f"Labels Distribution on Train, "
+                                          f"Validation and Test Sets")
     st.write("---")
 
     #This section displays the pie chart showing distribution of images across
-    #train, test and validation data sets. 
+    #train, test and validation data sets. Note image capions are written
+    #across multiple lines to comply with pep8.
 
-    labels_distribution = plt.imread(f"outputs/{version}/mildew_labels_distribution_pie.png")
-    st.image(labels_distribution, caption='Pie Chart of Mildew Image Distribution on Train, Validation and Test Sets')
-    labels_distribution = plt.imread(f"outputs/{version}/healthy_labels_distribution_pie.png")
-    st.image(labels_distribution, caption='Pie Chart of Healthy Image Distribution on Train, Validation and Test Sets')
+    labels_distribution = plt.imread(f"outputs/{version}/"
+                                     f"mildew_labels_distribution_pie.png")
+    st.image(labels_distribution, caption="Pie Chart of Mildew Image "
+                                          "Distribution on Train, Validation "
+                                          "and Test Sets")
+    labels_distribution = plt.imread(f"outputs/{version}/"
+                                     f"healthy_labels_distribution_pie.png")
+    st.image(labels_distribution, caption="Pie Chart of Healthy Image "
+                                          "Distribution on Train, Validation "
+                                          "and Test Sets")
     st.write("---")
 
     st.info(
@@ -57,6 +66,7 @@ def page4_create():
     st.write("---")
 
     st.write("### Generalised Performance on Test Set")
-    st.dataframe(pd.DataFrame(load_test_evaluation(version), index=['Loss', 'Accuracy']))
+    st.dataframe(pd.DataFrame(load_test_evaluation(version),
+                 index=['Loss', 'Accuracy']))
     st.write("---")
     

@@ -17,21 +17,22 @@ def page1_create():
     st.info(
         f"Business Requirements \n\n"
 
-        f"1 - Farmy & Foods are interested in conducting a study to visually" 
-        f"differentiate a healthy cherry leaf from one with powdery mildew.\n\n"
+        f"1 - Farmy & Foods are interested in conducting a study to visually "
+        f"differentiate a healthy cherry leaf from one infected with "
+        f"powdery mildew.\n\n"
         f"2 - Farmy & Foods are interested in predicting if a cherry leaf is"
-        f"healthy or contains powdery mildew."
+        f" healthy or contains powdery mildew."
     )
 
     st.write("Project Hypothesis and Validation")
     if st.checkbox("Show Project Hypotheses and Validation Criteria"):
 
         st.info(
-            f"1 - There will be a significant visual difference between healthy"
-            f" and powdery mildew infected leaves which facilitates"
+            f"1 - There will be a significant visual difference between "
+            f"healthy and powdery mildew infected leaves which facilitates "
             f"differentiation between the two. \n\n"
-            f"2 - Powdery mildew infected leaves will display a lower amount of"
-            f" green on their surfaces. \n\n"
+            f"2 - Powdery mildew infected leaves will display a lower amount "
+            f"of green on their surfaces. \n\n"
             f"3 - Healthy leaves will exhibit a greater amount of green" 
         )
 
