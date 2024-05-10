@@ -4,7 +4,7 @@
 
 The Powdery Mildew Detector Cherry is a machine learning project which is designed to detect powdery mildew in the leaves of cherry trees to assist Farmy & Foods (a fictional agricultural company) in managing powdery mildew in their crops to reduce time in quality control, maintain product standards and maximise profit. 
 
-![An image of the finished website on different devices](documentation/homepage-devices.PNG)
+![An image of the application homepage on different devices](documentation/page1-devices.PNG)
 
 Please use the link below to view the live, deployed site:
 
@@ -29,7 +29,6 @@ Please use the link below to view the live, deployed site:
       - [Wireframes](#wireframes)
       - [Security](#security)
   - [Future Implementations/Plans](#future-implementationsplans)
-    - [Accessibility](#accessibility)
   - [Technologies Used](#technologies-used)
     - [Languages Used](#languages-used)
     - [Libraries and External Sources](#libraries-and-external-sources)
@@ -205,11 +204,11 @@ On the left of every page will be the same radio button options to select and na
 
 ![Image of the Nav options, found to the left of all pages](documentation/nav-bar.PNG)
 
-#### Project Title
+#### Project Title and Page Title
 
-Each page will have the same title, the project name - Powdery Mildew Detector Cherry
+Each page will have the same title - Mildew Detector and Predictor.
 
-![Image of the footer, found at the bottom of all pages](documentation/footer.PNG)
+Each page will have the relevant page name as a sub title. 
 
 ### Project Summary/Overview Page
 
@@ -217,32 +216,32 @@ The first page of the dashboard will be the project summary page.
 
 This will give a brief text summary of the key points of the project, the data used, the business requirements, project hypotheses and validation.
 
-![An image of the homepage on different devices](documentation/homepage-devices.PNG)
+![An image of the homepage on different devices](documentation/page1-devices.PNG)
 
 ### Leaf Visualisation Page
 
 The dashboard will contain a data visualisation page, this will summarise some of the key characteristics of the data. Specifically it will include:
 
-- Figures showing the average and variance between healthy and powedery-mildew infected leaves.
-- Figure showing the 
+- Figures showing the average and variance between healthy and powedery mildew infected leaves.
+- Figures showing the difference between average healthy and powdery mildew infected leaves.
 - The option to create an image montage, showing the user a small collection of typical images for healthy and powdery mildew infected leaves. 
-
-![An image of the Find Detail page on different devices](documentation/find-detail-devices.PNG)
 
 ### Mildew Detector 
 
-The dashboard will include a page where users can upload images of leaves for the ML to classify whether or not the leaf(s) is infected with powdery mildew or not. This will page will.
+The dashboard will include a page where users can upload images of leaves for the ML to classify whether or not the leaf/leaves is infected with powdery mildew or not. This will page will.
 
 - Include an option for users to upload a leaf image.
 - Return a prediction on whether or not the leaf is infected with powdery mildew or not.
+- Display the prediction probability in a figure.
+- Have the option to download the results in a report.  
 
 ### ML Performance
 
 This dashboard page will show and explain the performance of the machine learning system to a business user. Specifically it will include:
 
 - Figures showing how the image data was split for training, testing and validation.
-- Figures showing the evolution of the ML system through fitting
-- A figure showing the overall predictive accuracy of the ML 
+- Figures showing the evolution of the ML system through fitting.
+- A figure showing the generalised performance of the ML.
 
 ### Project Hypotheses and Validation Page
 
@@ -252,13 +251,13 @@ This page will list each hypothesis, whether the project has provided the means 
 
 ### The Skeleton Plane
 
-As the project will largely be viewed in a Streamlit dashboard, the amount of customisation and design in the layout of the dashboard pages is limited. 
+As the project will largely be viewed in a Streamlit dashboard, the amount of customisation and design in the layout of the dashboard pages is limited. Customisation of figures and colours will be used with green being used to display healthy/non infected results and positive, confirmation message. Red will be used to highlight negative/warning messages and in relation to detection of powdery mildew. 
 
 #### Wireframes
 
-As all the pages will follow a similar Streamlit dashboard design the requirement for wireframes is limited, but the below were created to aid development:
+As all the pages will follow a similar Streamlit dashboard design the requirement for wireframes is limited, but the below was created to aid design and development as a base template for all pages to follow:
 
-[Homepage Wireframes](documentation/homepage-wireframe.PNG)
+[Dashboard Page Base Wireframe](documentation/dashboard-page-wireframe.PNG)
 
 #### Security
 
@@ -270,20 +269,9 @@ The other is the potentially sensitive leaf image data provided by the client un
 
 In the future I would like to incorporate:
 
-1. JSON/AJAX to Communicate Data - Getting Javascript and Django/Python to 'talk' to each other was an ongoing challenge during this project. This most prominent in creating the map markers (more detail below). I did explore in detail the possibility of incorporating JSON and AJAX calls to push/pull data from different parts of the system, however this isn't something I was familiar with and simply couldn't afford to spend the time to learn from scratch for functionality which wasn't crucial for the project. 
- 
+1. Jpeg Image Type Support - To make the application more user friendly I would like to explore the possibility of supporting multiple image type formats such as jpeg in addition to png. This would make things somewhat easier for users as they might be able to skip the step of resaving images as png if they happen to have a jpeg to hand.
 
-### Accessibility
-
-As this project is usable/visible via a Streamlit dashboard, modern accessibility requirements are met by this method. 
-
-- All images have alt text attributes and all links have aria labels for use by screen readers.
-
-- The colour scheme has been chosen to ensure a good level of contrast is maintained for text across the site.
-
-- Semantic markup has been used throughout.
-
-- Including hover states to aid navigation.
+2. Nutritional Dificiencies/False Mildew Detection - It would be interesting to explore the possibility of developing a machine learning system which is able to differentiate Powdery Mildew from other things which may be displayed in similar ways, such as nutritional dificiencies. This is beyond the scope of this project and would require additional plant science expertise, as well as a much more thoroughly trained model, however it would be interesting and valuable to a company in a real world setting. 
 
 ## Technologies Used
 
@@ -302,8 +290,6 @@ Python and Jupyter Notebooks. Markdown is used in the project documentation and 
 - Lucidchart - For wireframes and models.
 
 - Google Developer Tools - For troubleshooting/bug resolution and testing responsiveness
-
-- W3C Validators - For checking validity of HTML and CSS.
 
 - Am I Responsive? - To create images of website on range of device screens.
 

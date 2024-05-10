@@ -2,7 +2,11 @@
 
 ## Testing
 
-Testing was conducted at several stages throughout the development on both Streamlit being run from the workspace and later the deployed app on Heroku. 
+Testing was conducted at several stages throughout the development on both Streamlit being run from the workspace and later the deployed app on Heroku.
+
+### Pep 8 Testing
+
+All python files were tested for pep8 compliance. On guidance from mentor, I didn't edit code within Jupyter notebooks to pep8 standards.
 
 ## Full Manual Testing
 
