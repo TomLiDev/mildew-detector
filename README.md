@@ -136,6 +136,8 @@ A kanban board was used to track the progress and manage the development lifecyc
 
 https://github.com/users/TomLiDev/projects/3/views/1
 
+An MVP, minimum viable product, milestone was used to keep track of all Must have features. Any features not included in this milestone are considered additional to the core objectives of the project. 
+
 #### User Stories
 
 The below is a list of the user stories linked and required to achieve completion of each Epic, with a brief one line description of the epic itself and some of the key elements for it to be completed. Each user story was created with a specific list of tasks which act as acceptance criteria and facilitate an objective determination on whether the functionality was developed, and user story completed, to the required level. Some user stories do not have a more detailed acceptance criteria as this is not necessary, e.g. create Readme. 
@@ -165,18 +167,19 @@ EPIC 3 - Data Collection, Preparation and Visualisation
 
 This epic incorporates the work and user stories required to collect the necessary data, clean the data, analyse, visualise and split the data in preparation for use by a machine learning system.  
 
-- Add Kaggle json and import necessary data
-- Clean data, check for missing values, convert data where necessary etc
+- Import Data
+- Clean data - check for missing values, convert data where necessary etc
 - Visualise data
-- Split data into train, test and validate sets and create figures to display the data split graphically
+- Split data into train, test and validate sets
 
 EPIC 4 - Create and Evaluate Machine Learning System
 
 This epic incorporates the work to create, fit and evaluate the machine learning system based on the prepared data:
 
-- Create ML pipeline/system
+- Create convolutional neural network
 - Fit ML pipeline to data 
-- Evaluate the ML pipeline for predictive performance against the business objectives
+- Create ML Performance Figures and Evaluation pkl file
+- Predict on new data
 
 EPIC 5 - Create Streamlit Dashboard
 
@@ -263,7 +266,27 @@ As all the pages will follow a similar Streamlit dashboard design the requiremen
 
 They key security elements of this project are the protection of the developers Kaggle json. This file will be carefully managed to ensure it is not exposed or committed ot the repository.
 
-The other is the potentially sensitive leaf image data provided by the client under a non-disclosure agreement. Such data could be damaging to Farmy & Foods if it fell into the hands of a competitor, local media or member of the public. Therefore care will be taken to ensure that this data is not unnecessarily exposed. 
+The other is the potentially sensitive leaf image data provided by the client under a non-disclosure agreement. Such data could be damaging to Farmy & Foods if it fell into the hands of a competitor, local media or member of the public. Therefore care will be taken to ensure that this data is not unnecessarily exposed.
+
+## Model Versions
+
+### Version 1
+
+The first version of the ML model was based on the original dataset, with images of 256x256 pixels. This model took a considerable amount of time to train, which was hampered by the lack of reliability of the connection with Code Anywhere, when the connection dropped out the training had to be restarted from the beginning, despite remaining active in the workspace. To try and facilitate quicker training just to get an initial model created, I reduced the epochs for training. However the severely reduced number of epochs I ended up with, simply to get a model trained in the limited connection window was insufficient to provide accurate predictions. 
+
+Another key reason for developing a second version was the slug size when using a model training on 256 pixel images was simply too large for deployment via Heroku. 
+
+The figures below show the model training and evolution (or lack thereof) for version 1.
+
+[Version 1 Training Accuracy](documentation/v1-model-training-acc.PNG)
+
+[Version 1 Training Loss](documentation/v1-model-training-losses.PNG)
+
+The creation and training on this first version was still a very valubale exercise and a good use of time as it gave me a first hand appreciation of the practical challenges are considerations of training a model on relatively large images.
+
+### Version 2
+
+Version 2 of the ML model was trained on the resized 100x100 pixel images. This model trained much faster and thankfully the issues of connectivity seemed to have reduced during the training of this model, so more thorough training was able to take place and produce a suitably accurate model. Figure for performance can be found in the application itself.
 
 ## Future Implementations/Plans
 
@@ -271,7 +294,9 @@ In the future I would like to incorporate:
 
 1. Jpeg Image Type Support - To make the application more user friendly I would like to explore the possibility of supporting multiple image type formats such as jpeg in addition to png. This would make things somewhat easier for users as they might be able to skip the step of resaving images as png if they happen to have a jpeg to hand.
 
-2. Nutritional Dificiencies/False Mildew Detection - It would be interesting to explore the possibility of developing a machine learning system which is able to differentiate Powdery Mildew from other things which may be displayed in similar ways, such as nutritional dificiencies. This is beyond the scope of this project and would require additional plant science expertise, as well as a much more thoroughly trained model, however it would be interesting and valuable to a company in a real world setting. 
+2. Nutritional Dificiencies/False Mildew Detection - It would be interesting to explore the possibility of developing a machine learning system which is able to differentiate Powdery Mildew from other things which may be displayed in similar ways, such as nutritional dificiencies. This is beyond the scope of this project and would require additional plant science expertise, as well as a much more thoroughly trained model, however it would be interesting and valuable to a company in a real world setting.
+
+3. Database/Storage of Results - It would be very valuable to a business to be able to go back and view history of mildew detection across its farms. This would greatly assist in detecting any patterns of mildew instances across different times of year, locations and other factors which would in turn inform preventative actions to stop powdery mildew from occuring. If sufficient data was collected, this could potentially form the basis of another related ML system. If the impact of weather/season in creating/leading to instances of powdery mildew could be determined by historical data gathered by the application, in combination with real time weather forecasts, then predictions on which farms at specific times may become vunerable to powdery mildew outbreaks in the near future could be made. This would be very valuable to any agricultural business, but far beyond the scope of this project. 
 
 ## Technologies Used
 
