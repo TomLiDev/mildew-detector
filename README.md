@@ -23,7 +23,6 @@ Please use the link below to view the live, deployed site:
         - [User Stories](#user-stories)
     - [The Scope Plane](#the-scope-plane)
     - [The Structure Plane](#the-structure-plane)
-      - [Features](#features)
       - [General Features On All pages](#general-features-on-all-pages)
     - [The Skeleton Plane](#the-skeleton-plane)
       - [Wireframes](#wireframes)
@@ -106,11 +105,11 @@ The client will not supply the market with a product of compromised quality. The
 - Business Requirements 2 - ML Prediction/Classification
 
 - A machine learning model will be created and fitted to the image data to develop an ML system which is able to classify with satisfactory accuracy whether or not a leaf/leaves are infected with powdery mildew or not.
-- The treshold accuracy for this ML system is 97%.
+- The threshold accuracy for this ML system is 97%.
 
 ## User Experience Design
 
-As the project will primarily be used via a Streamlit dashboard a great deal of the design considerations for a traditional website do not apply. However I felt it was useful to some of the aspects relating to user experience design to show a consideration for User Experience and engagement with the dashboard as far as is possible. 
+As the project will primarily be used via a Streamlit dashboard a great deal of the design considerations for a traditional website do not apply. However I felt it was useful to include some of the aspects relating to user experience design to show a consideration for User Experience and engagement with the dashboard as far as is possible. 
 
 ### The Strategy Plane
 
@@ -156,7 +155,7 @@ EPIC 1 - Information Gathering and Data Collection
 
 EPIC 2 - Project Set Up and Documentation
 
-This epic incorporates the user stories required for the initial project setup and initial deployment. This epic and the user stories within was the first to be completed.
+This epic incorporates the user stories required for the initial project setup and initial deployment. This epic and the user stories within was the first to be completed. Whilst creating/managing project documentation is not a user story in the sense that it leads to the creation of a specific feature, I feel it is useful and important not to overlook the effort and time required to create project documentation, so include it as a user story. 
 
 - Install necessary libraries and requirements
 - Ensure Kaggle json files and other sensitive information kept secure
@@ -171,11 +170,13 @@ This epic incorporates the work and user stories required to collect the necessa
 - Clean data - check for missing values, convert data where necessary etc
 - Visualise data
 - Split data into train, test and validate sets
+- Create Additional Figures for Data Split
 
 EPIC 4 - Create and Evaluate Machine Learning System
 
 This epic incorporates the work to create, fit and evaluate the machine learning system based on the prepared data:
 
+- Image Augmentation
 - Create convolutional neural network
 - Fit ML pipeline to data 
 - Create ML Performance Figures and Evaluation pkl file
@@ -183,12 +184,22 @@ This epic incorporates the work to create, fit and evaluate the machine learning
 
 EPIC 5 - Create Streamlit Dashboard
 
-This epic includes the user stories which define the business user facing requirements, so that the ML project and key deliverables can be interacted with and users can engage and make use of the functionality offered. 
+This epic includes the user stories which define the business user facing requirements, so that the ML project and key deliverables can be interacted with and users can engage and make use of the functionality offered.
 
+- Design dashboard page to answer business requirement 1
+- Design dashboard page to answer business requirement 2
+- Create design document
+
+- Create python files for dashboard pages
 - Create project summary dashboard page
 - Create Mildew Detector dashboard page
 - Create Mildew Prediction dashboard page
 - Create Project Hypothesis and Success dashboard page
+
+- Customise dashboard background
+- Add 'green pixel' analysis to project hypotheses
+- Support different image formats
+- Location field
 
 
 ### The Scope Plane
@@ -196,8 +207,6 @@ This epic includes the user stories which define the business user facing requir
 - Dashboard. A visually attractive and simple to use dashboard for users engage with the key deliverables desired for this project. 
 
 ### Dashboard Design
-
-### Features
 
 ### General Features On All Dashboard pages
 
@@ -225,13 +234,13 @@ This will give a brief text summary of the key points of the project, the data u
 
 The dashboard will contain a data visualisation page, this will summarise some of the key characteristics of the data. Specifically it will include:
 
-- Figures showing the average and variance between healthy and powedery mildew infected leaves.
+- Figures showing the average and variance between healthy and powdery mildew infected leaves.
 - Figures showing the difference between average healthy and powdery mildew infected leaves.
 - The option to create an image montage, showing the user a small collection of typical images for healthy and powdery mildew infected leaves. 
 
 ### Mildew Detector 
 
-The dashboard will include a page where users can upload images of leaves for the ML to classify whether or not the leaf/leaves is infected with powdery mildew or not. This will page will.
+The dashboard will include a page where users can upload images of leaves for the ML to classify whether or not the leaf/leaves is infected with powdery mildew or not. This will page will:
 
 - Include an option for users to upload a leaf image.
 - Return a prediction on whether or not the leaf is infected with powdery mildew or not.
@@ -264,7 +273,7 @@ As all the pages will follow a similar Streamlit dashboard design the requiremen
 
 #### Security
 
-They key security elements of this project are the protection of the developers Kaggle json. This file will be carefully managed to ensure it is not exposed or committed ot the repository.
+A key security element of this project is the protection of the developers Kaggle json file. This file will be carefully managed to ensure it is not exposed or committed to the repository.
 
 The other is the potentially sensitive leaf image data provided by the client under a non-disclosure agreement. Such data could be damaging to Farmy & Foods if it fell into the hands of a competitor, local media or member of the public. Therefore care will be taken to ensure that this data is not unnecessarily exposed.
 
@@ -282,7 +291,7 @@ The figures below show the model training and evolution (or lack thereof) for ve
 
 [Version 1 Training Loss](documentation/v1-model-training-losses.PNG)
 
-The creation and training on this first version was still a very valubale exercise and a good use of time as it gave me a first hand appreciation of the practical challenges are considerations of training a model on relatively large images.
+The creation and training on this first version was still a very valuable exercise and a good use of time as it gave me a first hand appreciation of the practical challenges are considerations of training a model on relatively large images.
 
 ### Version 2
 
@@ -294,9 +303,11 @@ In the future I would like to incorporate:
 
 1. Jpeg Image Type Support - To make the application more user friendly I would like to explore the possibility of supporting multiple image type formats such as jpeg in addition to png. This would make things somewhat easier for users as they might be able to skip the step of resaving images as png if they happen to have a jpeg to hand.
 
-2. Nutritional Dificiencies/False Mildew Detection - It would be interesting to explore the possibility of developing a machine learning system which is able to differentiate Powdery Mildew from other things which may be displayed in similar ways, such as nutritional dificiencies. This is beyond the scope of this project and would require additional plant science expertise, as well as a much more thoroughly trained model, however it would be interesting and valuable to a company in a real world setting.
+2. Nutritional Deficiencies/False Mildew Detection - It would be interesting to explore the possibility of developing a machine learning system which is able to differentiate Powdery Mildew from other things which may be displayed in similar ways, such as nutritional deficiencies. This is beyond the scope of this project and would require additional plant science expertise, as well as a much more thoroughly trained model, however it would be interesting and valuable to a company in a real world setting.
 
-3. Database/Storage of Results - It would be very valuable to a business to be able to go back and view history of mildew detection across its farms. This would greatly assist in detecting any patterns of mildew instances across different times of year, locations and other factors which would in turn inform preventative actions to stop powdery mildew from occuring. If sufficient data was collected, this could potentially form the basis of another related ML system. If the impact of weather/season in creating/leading to instances of powdery mildew could be determined by historical data gathered by the application, in combination with real time weather forecasts, then predictions on which farms at specific times may become vunerable to powdery mildew outbreaks in the near future could be made. This would be very valuable to any agricultural business, but far beyond the scope of this project. 
+3. Database/Storage of Results - It would be very valuable to a business to be able to go back and view history of mildew detection across its farms. This would greatly assist in detecting any patterns of mildew instances across different times of year, locations and other factors which would in turn inform preventative actions to stop powdery mildew from occurring. I did explore the possibility of adding a database to this project, however the complexity and prospect for this to break the existing system made it to great a risk in terms of time vs reward.
+
+If sufficient data was collected, this could potentially form the basis of another related ML system. If the impact of weather/season in creating/leading to instances of powdery mildew could be determined by historical data gathered by the application, in combination with real time weather forecasts, then predictions on which farms at specific times may become vulnerable to powdery mildew outbreaks in the near future could be made. This would be very valuable to any agricultural business, but far beyond the scope of this project. 
 
 ## Technologies Used
 
