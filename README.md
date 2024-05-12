@@ -344,7 +344,7 @@ Python and Jupyter Notebooks. Markdown is used in the project documentation and 
 
 ## Deployment
 
-This was website was deployed using Heroku. Instructions to do this are:
+This application was deployed using Heroku. Instructions to do this are:
 
 1. Go to Github and Log in (or sign up).
 
@@ -410,6 +410,8 @@ The following sites were used for information/code:
 - https://stackoverflow.com/questions/21517879/python-pil-resize-all-images-in-a-folder - Used for guidance on converting image size. 
 
 - https://www.datacamp.com/tutorial/line-plots-in-matplotlib-with-python - Used for customising and creating line plots.
+
+- https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_features.html - Used for reference in creating pie charts.
 
 - https://stackoverflow.com/questions/20457038/how-to-round-to-2-decimals-with-python - Used for reference to rounding figures.
 
