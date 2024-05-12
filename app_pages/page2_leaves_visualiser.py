@@ -21,7 +21,7 @@ def page2_create():
     version = 'v2'
 
     if st.checkbox(
-        f"Show difference between average and variabillity for healthy leaves"
+        f"Show average and variability images for healthy leaves"
         f" and those infected with Powdery Mildew."
         ):
 
