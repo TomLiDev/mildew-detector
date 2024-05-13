@@ -417,6 +417,12 @@ The following sites were used for information/code:
 
 - https://stackoverflow.com/questions/28576203/how-to-count-the-number-of-pixels-of-a-certain-color-in-python - Used for guidance on creating a function to count number of coloured pixels.
 
+The following were used in reference to activation functions in the output layer of the model:
+
+- https://towardsdatascience.com/introduction-to-convolutional-neural-network-cnn-de73f69c5b83#:~:text=Dense%20Layer%20is%20used%20to,on%20output%20from%20convolutional%20layers.&text=Each%20Layer%20in%20the%20Neural,as%20an%20%E2%80%9Cactivation%20function%E2%80%9D.
+- https://machinelearningmastery.com/choose-an-activation-function-for-deep-learning/
+
+
 ## Acknowledgements
 
 -  My Code Institute Mentor
