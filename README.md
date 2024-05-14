@@ -295,7 +295,27 @@ The creation and training on this first version was still a very valuable exerci
 
 ### Version 2
 
+Version 2 is the model which is used in the live application.
+
 Version 2 of the ML model was trained on the resized 100x100 pixel images. This model trained much faster and thankfully the issues of connectivity seemed to have reduced during the training of this model, so more thorough training was able to take place and produce a suitably accurate model. Figure for performance can be found in the application itself.
+
+### Version 3
+
+Version 3 of the ML model was trained on the resized 100x100 pixel images. In an attempt to make a better/alternative, this model was altered so that it used a linear function as the activation function in the output layer and later softmax (I understand softmax is normally used for multi-classification cases but I was willing to give it a try). Despite a number of attempts these models did not meet accuracy standards, with accuracy often stuggling to improve beyond 0.5. From researching, it seemed that this was potentially due to the loss function getting 'stuck' at a local optimum, or possibly the optimiser not being ideal for the task. 
+
+To address this I experimented with creating models which used:
+
+- Linear as activation function in outputer layer, SGD as the optimiser function, binary crossentropy as the loss function. This version initially exceeded 0.5 in accuracy, but later in fitting seemed to deteriorate with the early stopping condition confusingly coming into effect shortly after. 
+
+- Linear as activation function in outputer layer, SGD as the optimiser function, categorical crossentropy as the loss function (I am aware that categorical cross entropy should normally be used where there are more than 2 classifications but I was willing to try it). This version did not exceed 0.5 accuracy in fitting.
+
+- Softmax as activation function in output layer, SGD as optimiser function, binary crossentropy as the loss function. This version did not exceed 0.5 accuracy in fitting.
+
+- Softmax as activation function in output layer, Adam as optimiser function, binary crossentropy as the loss function. This version did not exceed 0.5 accuracy in fitting.
+
+These findings triggered further investigation, as simply changing the optimiser has not given the desired results. I then began to change the learning rate whilst still using SGD. Initially I changed the learning rate from its default of 0.01 to 0.03. This got past the previous hurdle of 0.5 accuracy, however fitting seemed to top out at 0.67.
+
+I then reduced the learning rate to 0.001. 
 
 ## Future Implementations/Plans
 
@@ -417,10 +437,14 @@ The following sites were used for information/code:
 
 - https://stackoverflow.com/questions/28576203/how-to-count-the-number-of-pixels-of-a-certain-color-in-python - Used for guidance on creating a function to count number of coloured pixels.
 
+- https://keras.io/api/optimizers/ - General reference for optimisers
+
 The following were used in reference to activation functions in the output layer of the model:
 
 - https://towardsdatascience.com/introduction-to-convolutional-neural-network-cnn-de73f69c5b83#:~:text=Dense%20Layer%20is%20used%20to,on%20output%20from%20convolutional%20layers.&text=Each%20Layer%20in%20the%20Neural,as%20an%20%E2%80%9Cactivation%20function%E2%80%9D.
 - https://machinelearningmastery.com/choose-an-activation-function-for-deep-learning/
+
+- https://stackoverflow.com/questions/37213388/keras-accuracy-does-not-change - Used for reference in improving accuracy with linear activation in output layer
 
 
 ## Acknowledgements

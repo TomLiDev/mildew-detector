@@ -15,3 +15,4 @@ inputs/mildew_dataset/cherry-leaves/resized/test
 inputs/mildew_dataset/cherry-leaves/resized/train
 /documentation
 outputs/v1*
+outputs/v3*
