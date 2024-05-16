@@ -403,13 +403,13 @@ Python and Jupyter Notebooks. Markdown is used in the project documentation and 
 
 ### Libraries Used
 
-- pandas
-- seaborn
-- numpy
-- matplotlib
-- joblib
-- tensorflow
-- keras
+- pandas - Dataframe e.g. for graph creation
+- seaborn - Graphs and figures
+- numpy - Arrays e.g. for figures
+- matplotlib - Graphs and figures
+- joblib - Image loading/using
+- tensorflow - ML model creation and fitting
+- keras - ML model creation and fitting
 
 ## Deployment
 
