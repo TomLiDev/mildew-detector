@@ -301,15 +301,15 @@ Version 2 of the ML model was trained on the resized 100x100 pixel images. This 
 
 ### Version 3
 
-These versions of the ML model were trained on the resized 100x100 pixel images. In an attempt to make a better/alternative, this model was altered with a linear function as the activation function in the output layer and later softmax (I understand softmax is normally used for multi-classification cases but I was willing to give it a try). Despite a number of attempts these models did not meet accuracy standards, with accuracy often stuggling to improve beyond 0.5. From researching, it seemed that this was potentially due to the loss function getting 'stuck' at a local optimum, or possibly the optimiser not being ideal for the task. 
+These versions of the ML model were trained on the resized 100x100 pixel images. In an attempt to make a better/alternative, this model was altered with a linear function as the activation function in the output layer and later softmax (I understand softmax is normally used for multi-classification cases but I was willing to give it a try). Despite a number of attempts these models did not meet accuracy standards, with accuracy often struggling to improve beyond 0.5. From researching, it seemed that this was potentially due to the loss function getting 'stuck' at a local optimum, or possibly the optimiser not being ideal for the task. 
 
 As several slightly different models were developed and fitted in this process, I saved the most interesting/relevant figures as 'sub' versions, 3.2 3.3 etc. As the differences between these were fairly minor it didn't feel necessary or practical to create separate folders for every version. 
 
 To address the potential problem of the optimiser and/or loss function I experimented with creating models which used:
 
-- Linear as activation function in outputer layer, SGD as the optimiser function, binary crossentropy as the loss function. This version initially exceeded 0.5 in accuracy, but later in fitting seemed to deteriorate with the early stopping condition confusingly coming into effect shortly after. 
+- Linear as activation function in output layer, SGD as the optimiser function, binary crossentropy as the loss function. This version initially exceeded 0.5 in accuracy, but later in fitting seemed to deteriorate with the early stopping condition confusingly coming into effect shortly after. 
 
-- Linear as activation function in outputer layer, SGD as the optimiser function, categorical crossentropy as the loss function (I am aware that categorical cross entropy should normally be used where there are more than 2 classifications but I was willing to try it). This version did not exceed 0.5 accuracy.
+- Linear as activation function in output layer, SGD as the optimiser function, categorical crossentropy as the loss function (I am aware that categorical cross entropy should normally be used where there are more than 2 classifications but I was willing to try it). This version did not exceed 0.5 accuracy.
 
 - Softmax as activation function in output layer, SGD as optimiser function, binary crossentropy as the loss function. This version did not exceed 0.5 accuracy.
 
@@ -317,14 +317,14 @@ To address the potential problem of the optimiser and/or loss function I experim
 
 These findings triggered further investigation. From reading it seemed that accuracy and validation accuracy getting stuck at a particular level was a strong indication of overfitting. To overcome this, I then began to change the learning rate whilst still using SGD and also experimenting with changing the drop out rate. 
 
-I tried several different learning rates based on reserch. Higher learning rates above the default of 0.1 did give greater accuracy than 0.5, but often failed to 'hold' this accuracy and would deteriorate in later epochs. 
+I tried several different learning rates based on research. Higher learning rates above the default of 0.1 did give greater accuracy than 0.5, but often failed to 'hold' this accuracy and would deteriorate in later epochs. 
 
-I then reduced the learning rate to 0.001. This version took several epochs to develop accuracy, but did again seemd to struggle and fluctuated between 0.8 and 0.85 accuracy, without improving beyond this. I increased the dropout rate to see if the effect of 'dropping' neurons through the fitting process would help get the models beyond this local maximum but this gave mixed results.
+I then reduced the learning rate to 0.001. This version took several epochs to develop accuracy, but did again seemed to struggle and fluctuated between 0.8 and 0.85 accuracy, without improving beyond this. I increased the dropout rate to see if the effect of 'dropping' neurons through the fitting process would help get the models beyond this local maximum but this gave mixed results.
 
 [Version 3 Training with Learning Rate of 0.001](documentation/v3_lr_0.001.PNG)
 
 3.3
-The following figures are from version 3.3. SGD optimisation function with a learning rate of 0.002, dropout rate of 0.7, binary cross entropy as loss function and linear as the activation function in the output layer. This model acheived an accuracy of 0.92 when evaluated and predicted leaf images correctly when tested in the jupyter notebook function. 
+The following figures are from version 3.3. SGD optimisation function with a learning rate of 0.002, dropout rate of 0.7, binary cross entropy as loss function and linear as the activation function in the output layer. This model achieved an accuracy of 0.92 when evaluated and predicted leaf images correctly when tested in the jupyter notebook function. 
 
 [Version 3.3 Accuracy](documentation/v3.3_model_training_acc.png)
 
@@ -332,13 +332,13 @@ The following figures are from version 3.3. SGD optimisation function with a lea
 
 
 3.4 
-The following figures are from version 3.4. SGD optimisation function with a learning rate of 0.002, dropout rate of 0.5, binary cross entropy as loss function and linear as the activation function in the output layer. Although the overall accuracy of this model is relativley good, the drop off in accuracy in the last epoch is a good example of the inconsistent improvement I have come across. 
+The following figures are from version 3.4. SGD optimisation function with a learning rate of 0.002, dropout rate of 0.5, binary cross entropy as loss function and linear as the activation function in the output layer. Although the overall accuracy of this model is relativeley good, the drop off in accuracy in the last epoch is a good example of the inconsistent improvement I have come across. 
 
 [Version 3.4 Accuracy](documentation/v3.4_model_training_acc.png)
 
 [Version 3.4 Training Loss](documentation/v3.4_model_training_losses.png)
 
-Whilst the accuracy of v3.3 is decent, and certainly a significant improvement on the initial 'linerar' versions, it is still inferior to v2, which utilised sigmoid as the activation function in the output layer. 
+Whilst the accuracy of v3.3 is decent, and certainly a significant improvement on the initial 'linear' versions, it is still inferior to v2, which utilised sigmoid as the activation function in the output layer. 
 
 Due to time restraints I was unable to keep investigating and improving the 'linear' versions, therefore the v2 model was used in the final streamlit application. It is also worth mentioning the unreliability of codeanywhere seriously hampered model fitting efforts and slowed this process down. Although I reverted back to a different version the exercise of experimenting with the layers in the CNN was a valuable exercise and gave valuable first hand experience on how to overcome training issues when developing machine learning pipelines.
 
