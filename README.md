@@ -340,7 +340,7 @@ These findings triggered further investigation. From reading, it seemed that acc
 
 I tried several different learning rates based on research. Higher learning rates above the default of 0.1 did give greater accuracy than 0.5, but often failed to 'hold' this accuracy and would deteriorate in later epochs. 
 
-I then reduced the learning rate to 0.001. This version took several epochs to develop accuracy, but did again seemed to struggle and fluctuated between 0.8 and 0.85 accuracy, without improving beyond this. I increased the dropout rate to see if the effect of 'dropping' neurons through the fitting process would help get the models beyond this local maximum but this gave mixed results.
+I then reduced the learning rate to 0.001. This version took several epochs to develop accuracy, but did again seemed to struggle and fluctuated between 0.8 and 0.85 accuracy, without improving beyond this (image below). I increased the dropout rate to see if the effect of 'dropping' neurons through the fitting process would help get the models beyond this local maximum but this gave mixed results.
 
 ![Version 3 Training with Learning Rate of 0.001](documentation/v3_lr_0.001.PNG)
 
@@ -348,9 +348,9 @@ I then reduced the learning rate to 0.001. This version took several epochs to d
 
 The following figures are from version 3.3. SGD optimisation function with a learning rate of 0.002, dropout rate of 0.7, binary cross entropy as loss function and linear as the activation function in the output layer. This model achieved an accuracy of 0.92 when evaluated and predicted leaf images correctly when tested in the jupyter notebook function. 
 
-[Version 3.3 Accuracy](documentation/v3.3_model_training_acc.png)
+![Version 3.3 Accuracy](documentation/v3.3_model_training_acc.png)
 
-[Version 3.3 Training Loss](documentation/v3.3_model_training_losses.png)
+![Version 3.3 Training Loss](documentation/v3.3_model_training_losses.png)
 
 
 3.4 
@@ -407,7 +407,6 @@ Python and Jupyter Notebooks. Markdown is used in the project documentation and 
 - seaborn
 - numpy
 - matplotlib
-- plotly
 - joblib
 - tensorflow
 - keras
