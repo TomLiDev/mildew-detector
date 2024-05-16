@@ -17,7 +17,7 @@ def page3_create():
     Page3_create function defines text and layout displayed on the mildew
     detection page
     """
-    st.write("Mildew Detector")
+    st.write("## Mildew Detector")
 
     images_buffer = st.file_uploader(f"Upload leaf images. You may select "
                                      f"more than one.",
