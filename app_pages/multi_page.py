@@ -12,7 +12,7 @@ class MultiPage:
 
         st.set_page_config(
             page_title = self.app_name,
-            page_icon=None
+            page_icon="chart_with_upwards_trend",
         )
 
 

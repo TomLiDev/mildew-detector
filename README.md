@@ -129,7 +129,7 @@ This application was designed and built in line with Agile methodologies, with s
 
 Each feature was assigned an epic and individually prioritised following the MoSCoW rating system, being designated Must have, Should have, Could have and Won't have. These designations were assigned based on perceived requirements of the business and the effort required to develop them. Features were developed with Must have's being completed first, and so on, to ensure that the most useful and fundamental aspects of the application and dashboard were built first, with 'bells and whistles' features being completed later depending on the time left. 
 
-![An Image of the Mildew Detector kanban board in progress](documentation/mildew-kanban.PNG)
+![An Image of the Mildew Detector kanban board in progress](documentation/mildew_kanban.PNG)
 
 A kanban board was used to track the progress and manage the development lifecycle, the completed board can be viewed here:
 
@@ -214,7 +214,7 @@ This epic includes the user stories which define the business user facing requir
 
 On the left of every page will be the same radio button options to select and navigate to different pages. 
 
-![Image of the Nav options, found to the left of all pages](documentation/nav-bar.PNG)
+![Image of the Nav options, found to the left of all pages](documentation/nav_bar.PNG)
 
 #### Project Title and Page Title
 
@@ -228,7 +228,7 @@ The first page of the dashboard will be the project summary page.
 
 This will give a brief text summary of the key points of the project, the data used, the business requirements, project hypotheses and validation.
 
-![An image of the homepage on different devices](documentation/page1-devices.PNG)
+![An image of the homepage on different devices](documentation/page1_devices.PNG)
 
 ### Leaf Visualisation Page
 
@@ -269,7 +269,7 @@ As the project will largely be viewed in a Streamlit dashboard, the amount of cu
 
 As all the pages will follow a similar Streamlit dashboard design the requirement for wireframes is limited, but the below was created to aid design and development as a base template for all pages to follow:
 
-[Dashboard Page Base Wireframe](documentation/dashboard-page-wireframe.PNG)
+[Dashboard Page Base Wireframe](documentation/dashboard_page_wireframe.PNG)
 
 #### Security
 
@@ -287,9 +287,9 @@ Another key reason for developing a second version was the slug size when using 
 
 The figures below show the model training and evolution (or lack thereof) for version 1.
 
-[Version 1 Training Accuracy](documentation/v1-model-training-acc.PNG)
+[Version 1 Training Accuracy](documentation/v1_model_training_acc.PNG)
 
-[Version 1 Training Loss](documentation/v1-model-training-losses.PNG)
+[Version 1 Training Loss](documentation/v1-model_training_losses.PNG)
 
 The creation and training on this first version was still a very valuable exercise and a good use of time as it gave me a first hand appreciation of the practical challenges are considerations of training a model on relatively large images.
 
@@ -301,21 +301,46 @@ Version 2 of the ML model was trained on the resized 100x100 pixel images. This 
 
 ### Version 3
 
-Version 3 of the ML model was trained on the resized 100x100 pixel images. In an attempt to make a better/alternative, this model was altered so that it used a linear function as the activation function in the output layer and later softmax (I understand softmax is normally used for multi-classification cases but I was willing to give it a try). Despite a number of attempts these models did not meet accuracy standards, with accuracy often stuggling to improve beyond 0.5. From researching, it seemed that this was potentially due to the loss function getting 'stuck' at a local optimum, or possibly the optimiser not being ideal for the task. 
+These versions of the ML model were trained on the resized 100x100 pixel images. In an attempt to make a better/alternative, this model was altered with a linear function as the activation function in the output layer and later softmax (I understand softmax is normally used for multi-classification cases but I was willing to give it a try). Despite a number of attempts these models did not meet accuracy standards, with accuracy often stuggling to improve beyond 0.5. From researching, it seemed that this was potentially due to the loss function getting 'stuck' at a local optimum, or possibly the optimiser not being ideal for the task. 
 
-To address this I experimented with creating models which used:
+As several slightly different models were developed and fitted in this process, I saved the most interesting/relevant figures as 'sub' versions, 3.2 3.3 etc. As the differences between these were fairly minor it didn't feel necessary or practical to create separate folders for every version. 
+
+To address the potential problem of the optimiser and/or loss function I experimented with creating models which used:
 
 - Linear as activation function in outputer layer, SGD as the optimiser function, binary crossentropy as the loss function. This version initially exceeded 0.5 in accuracy, but later in fitting seemed to deteriorate with the early stopping condition confusingly coming into effect shortly after. 
 
-- Linear as activation function in outputer layer, SGD as the optimiser function, categorical crossentropy as the loss function (I am aware that categorical cross entropy should normally be used where there are more than 2 classifications but I was willing to try it). This version did not exceed 0.5 accuracy in fitting.
+- Linear as activation function in outputer layer, SGD as the optimiser function, categorical crossentropy as the loss function (I am aware that categorical cross entropy should normally be used where there are more than 2 classifications but I was willing to try it). This version did not exceed 0.5 accuracy.
 
-- Softmax as activation function in output layer, SGD as optimiser function, binary crossentropy as the loss function. This version did not exceed 0.5 accuracy in fitting.
+- Softmax as activation function in output layer, SGD as optimiser function, binary crossentropy as the loss function. This version did not exceed 0.5 accuracy.
 
-- Softmax as activation function in output layer, Adam as optimiser function, binary crossentropy as the loss function. This version did not exceed 0.5 accuracy in fitting.
+- Softmax as activation function in output layer, Adam as optimiser function, binary crossentropy as the loss function. This version did not exceed 0.5 accuracy.
 
-These findings triggered further investigation, as simply changing the optimiser has not given the desired results. I then began to change the learning rate whilst still using SGD. Initially I changed the learning rate from its default of 0.01 to 0.03. This got past the previous hurdle of 0.5 accuracy, however fitting seemed to top out at 0.67.
+These findings triggered further investigation. From reading it seemed that accuracy and validation accuracy getting stuck at a particular level was a strong indication of overfitting. To overcome this, I then began to change the learning rate whilst still using SGD and also experimenting with changing the drop out rate. 
 
-I then reduced the learning rate to 0.001. 
+I tried several different learning rates based on reserch. Higher learning rates above the default of 0.1 did give greater accuracy than 0.5, but often failed to 'hold' this accuracy and would deteriorate in later epochs. 
+
+I then reduced the learning rate to 0.001. This version took several epochs to develop accuracy, but did again seemd to struggle and fluctuated between 0.8 and 0.85 accuracy, without improving beyond this. I increased the dropout rate to see if the effect of 'dropping' neurons through the fitting process would help get the models beyond this local maximum but this gave mixed results.
+
+[Version 3 Training with Learning Rate of 0.001](documentation/v3_lr_0.001.PNG)
+
+3.3
+The following figures are from version 3.3. SGD optimisation function with a learning rate of 0.002, dropout rate of 0.7, binary cross entropy as loss function and linear as the activation function in the output layer. This model acheived an accuracy of 0.92 when evaluated and predicted leaf images correctly when tested in the jupyter notebook function. 
+
+[Version 3.3 Accuracy](documentation/v3.3_model_training_acc.png)
+
+[Version 3.3 Training Loss](documentation/v3.3_model_training_losses.png)
+
+
+3.4 
+The following figures are from version 3.4. SGD optimisation function with a learning rate of 0.002, dropout rate of 0.5, binary cross entropy as loss function and linear as the activation function in the output layer. Although the overall accuracy of this model is relativley good, the drop off in accuracy in the last epoch is a good example of the inconsistent improvement I have come across. 
+
+[Version 3.4 Accuracy](documentation/v3.4_model_training_acc.png)
+
+[Version 3.4 Training Loss](documentation/v3.4_model_training_losses.png)
+
+Whilst the accuracy of v3.3 is decent, and certainly a significant improvement on the initial 'linerar' versions, it is still inferior to v2, which utilised sigmoid as the activation function in the output layer. 
+
+Due to time restraints I was unable to keep investigating and improving the 'linear' versions, therefore the v2 model was used in the final streamlit application. It is also worth mentioning the unreliability of codeanywhere seriously hampered model fitting efforts and slowed this process down. Although I reverted back to a different version the exercise of experimenting with the layers in the CNN was a valuable exercise and gave valuable first hand experience on how to overcome training issues when developing machine learning pipelines.
 
 ## Future Implementations/Plans
 
@@ -445,6 +470,8 @@ The following were used in reference to activation functions in the output layer
 - https://machinelearningmastery.com/choose-an-activation-function-for-deep-learning/
 
 - https://stackoverflow.com/questions/37213388/keras-accuracy-does-not-change - Used for reference in improving accuracy with linear activation in output layer
+
+- https://www.squash.io/how-to-authenticate-git-push-with-github-using-a-token/ - Used for resolving the error - git error remote: No anonymous write access. fatal: Authentication failed (more detail in testing)
 
 
 ## Acknowledgements
