@@ -47,7 +47,8 @@ def page2_create():
     
     st.info(
             f"As shown in the figures above, leaves infected with powdery "
-            f"generally show a greater amount of white pixels in the images "
+            f"mildew generally show a greater amount of white pixels in the "
+            f"images "
             f"with the healthy leaves showing a much more solid, overall "
             f"green colouring. This is in support of the project hypotheses."
         )

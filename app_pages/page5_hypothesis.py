@@ -36,11 +36,17 @@ def page5_create():
             f"a simplified, representative value which is displayed more "
             f"easily on the figure axis."
         )
-        healthy = plt.imread(f"outputs/{version}/healthy_pixels.png")
-        mildew = plt.imread(f"outputs/{version}/powdery_mildew_pixels.png")
+        st.success(
+            f"Average green pixels in healthy image - 141"
+        )
+        st.warning(
+            f"Average green pixels shown in powdery mildew image - 126"
+        )
+        healthy_pixel_chart = plt.imread(f"outputs/{version}/healthy_pixels.png")
+        mildew_pixel_chart = plt.imread(f"outputs/{version}/powdery_mildew_pixels.png")
 
-        st.image(healthy)
-        st.image(mildew)
+        st.image(healthy_pixel_chart)
+        st.image(mildew_pixel_chart)
 
     st.write("### Hypothesis 1:")
     st.write(

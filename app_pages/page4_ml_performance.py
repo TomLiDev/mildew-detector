@@ -15,7 +15,7 @@ def page4_create():
     st.info(
         f"The figures below shows how the original leaf images dataset "
         f"was split into train, validation and test groups to facilitate the"
-        f"development of a ML system with sufficient predictive accuracy on"
+        f" development of an ML system with sufficient predictive accuracy on"
         f" healthy and powdery mildew infected leaves."
     )
 
@@ -47,8 +47,8 @@ def page4_create():
 
     st.info(
         f"The figure below shows how the ML system was gradually trained and "
-        f"improved over time, this is show by the increase in accuracy and "
-        f"reduction of loss."
+        f"improved over time, this is shown by the increase in accuracy and "
+        f"reduction of loss. "
         f"Loss, also known as error function, quantifies how well a single "
         f"prediction of the ML system compares to the actual target value, "
         f"a healthy or powdery mildew infected leaf."

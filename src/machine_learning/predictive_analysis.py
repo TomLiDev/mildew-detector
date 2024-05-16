@@ -26,14 +26,11 @@ def plot_predictions_probabilities(pred_proba, pred_class):
     prob_per_class = prob_per_class.round(3)
     prob_per_class['Diagnostic'] = prob_per_class.index
 
-    st.write(pred_class, "test")
-
+    # below lines customise colour used in chart
     if pred_class == 'Infected':
         colour = 'red'
     else:
         colour = 'green'
-    
-    st.write(colour)
 
     fig = px.bar(
         prob_per_class,
