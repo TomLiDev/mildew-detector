@@ -4,7 +4,7 @@
 
 The Powdery Mildew Detector Cherry is a machine learning project which is designed to detect powdery mildew in the leaves of cherry trees to assist Farmy & Foods (a fictional agricultural company) in managing powdery mildew in their crops to reduce time in quality control, maintain product standards and maximise profit. 
 
-![An image of the application homepage on different devices](documentation/page1-devices.PNG)
+![An image of the application homepage on different devices](documentation/page1_devices.PNG)
 
 Please use the link below to view the live, deployed site:
 
@@ -27,6 +27,10 @@ Please use the link below to view the live, deployed site:
     - [The Skeleton Plane](#the-skeleton-plane)
       - [Wireframes](#wireframes)
       - [Security](#security)
+  - [Model Versions](#model-versions)
+    - [Version 1](#version-1)
+    - [Version 2](#version-2)
+    - [Version 3](#version-3)
   - [Future Implementations/Plans](#future-implementationsplans)
   - [Technologies Used](#technologies-used)
     - [Languages Used](#languages-used)
