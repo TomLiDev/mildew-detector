@@ -4,7 +4,7 @@
 
 The Powdery Mildew Detector Cherry is a machine learning project which is designed to detect powdery mildew in the leaves of cherry trees to assist Farmy & Foods (a fictional agricultural company) in managing powdery mildew in their crops to reduce time in quality control, maintain product standards and maximise profit. 
 
-![An image of the application homepage on different devices](documentation/page1_devices.PNG)
+![An image of the application on different devices](documentation/page1_devices.PNG)
 
 Please use the link below to view the live, deployed site:
 
@@ -287,7 +287,7 @@ The other is the potentially sensitive leaf image data provided by the client un
 
 The first version of the ML model was based on the original dataset, with images of 256x256 pixels. This model took a considerable amount of time to train, which was hampered by the lack of reliability of the connection with Code Anywhere, when the connection dropped out the training had to be restarted from the beginning, despite remaining active in the workspace. To try and facilitate quicker training just to get an initial model created, I reduced the epochs for training. However the severely reduced number of epochs I ended up with, simply to get a model trained in the limited connection window was insufficient to provide accurate predictions. 
 
-Another key reason for developing a second version was the slug size when using a model training on 256 pixel images was simply too large for deployment via Heroku. 
+Another key reason for developing a second version was the slug size. When using a model training on 256 pixel images the slug was simply too large for deployment via Heroku. 
 
 The figures below show the model training and evolution (or lack thereof) for version 1.
 
@@ -307,11 +307,11 @@ Version 2 of the ML model was trained on the resized 100x100 pixel images. This 
 
 These versions of the ML model were trained on the resized 100x100 pixel images. In an attempt to make a better/alternative, this model was altered with a linear function as the activation function in the output layer and later softmax (I understand softmax is normally used for multi-classification cases but I was willing to give it a try). Despite a number of attempts these models did not meet accuracy standards, with accuracy often struggling to improve beyond 0.5. From researching, it seemed that this was potentially due to the loss function getting 'stuck' at a local optimum, or possibly the optimiser not being ideal for the task. 
 
-As several slightly different models were developed and fitted in this process, I saved the most interesting/relevant figures as 'sub' versions, 3.2 3.3 etc. As the differences between these were fairly minor it didn't feel necessary or practical to create separate folders for every version. 
+As several slightly different models were developed and fitted during this process, I saved the most interesting/relevant figures as 'sub' versions, 3.2 3.3 etc. As the differences between these were fairly minor it didn't feel necessary or practical to create separate folders for every version. 
 
 To address the potential problem of the optimiser and/or loss function I experimented with creating models which used:
 
-- Linear as activation function in output layer, SGD as the optimiser function, binary crossentropy as the loss function. This version initially exceeded 0.5 in accuracy, but later in fitting seemed to deteriorate with the early stopping condition confusingly coming into effect shortly after. 
+- Linear as activation function in output layer, SGD as the optimiser function, binary crossentropy as the loss function. This version initially exceeded 0.5 in accuracy, but later in fitting seemed to deteriorate. 
 
 - Linear as activation function in output layer, SGD as the optimiser function, categorical crossentropy as the loss function (I am aware that categorical cross entropy should normally be used where there are more than 2 classifications but I was willing to try it). This version did not exceed 0.5 accuracy.
 
@@ -319,15 +319,16 @@ To address the potential problem of the optimiser and/or loss function I experim
 
 - Softmax as activation function in output layer, Adam as optimiser function, binary crossentropy as the loss function. This version did not exceed 0.5 accuracy.
 
-These findings triggered further investigation. From reading it seemed that accuracy and validation accuracy getting stuck at a particular level was a strong indication of overfitting. To overcome this, I then began to change the learning rate whilst still using SGD and also experimenting with changing the drop out rate. 
+These findings triggered further investigation. From reading, it seemed that accuracy and validation accuracy getting stuck at a particular level was a strong indication of overfitting. To overcome this, I then began to change the learning rate whilst still using SGD and also experimenting with changing the drop out rate. I also looked at changing the activation function within the hidden layers to tanh, but from researching the general concensus seemed to suggest Relu was more suited to this projects purposes. 
 
 I tried several different learning rates based on research. Higher learning rates above the default of 0.1 did give greater accuracy than 0.5, but often failed to 'hold' this accuracy and would deteriorate in later epochs. 
 
 I then reduced the learning rate to 0.001. This version took several epochs to develop accuracy, but did again seemed to struggle and fluctuated between 0.8 and 0.85 accuracy, without improving beyond this. I increased the dropout rate to see if the effect of 'dropping' neurons through the fitting process would help get the models beyond this local maximum but this gave mixed results.
 
-[Version 3 Training with Learning Rate of 0.001](documentation/v3_lr_0.001.PNG)
+![Version 3 Training with Learning Rate of 0.001](documentation/v3_lr_0.001.PNG)
 
 3.3
+
 The following figures are from version 3.3. SGD optimisation function with a learning rate of 0.002, dropout rate of 0.7, binary cross entropy as loss function and linear as the activation function in the output layer. This model achieved an accuracy of 0.92 when evaluated and predicted leaf images correctly when tested in the jupyter notebook function. 
 
 [Version 3.3 Accuracy](documentation/v3.3_model_training_acc.png)
@@ -336,15 +337,16 @@ The following figures are from version 3.3. SGD optimisation function with a lea
 
 
 3.4 
+
 The following figures are from version 3.4. SGD optimisation function with a learning rate of 0.002, dropout rate of 0.5, binary cross entropy as loss function and linear as the activation function in the output layer. Although the overall accuracy of this model is relativeley good, the drop off in accuracy in the last epoch is a good example of the inconsistent improvement I have come across. 
 
-[Version 3.4 Accuracy](documentation/v3.4_model_training_acc.png)
+![Version 3.4 Accuracy](documentation/v3.4_model_training_acc.png)
 
-[Version 3.4 Training Loss](documentation/v3.4_model_training_losses.png)
+![Version 3.4 Training Loss](documentation/v3.4_model_training_losses.png)
 
 Whilst the accuracy of v3.3 is decent, and certainly a significant improvement on the initial 'linear' versions, it is still inferior to v2, which utilised sigmoid as the activation function in the output layer. 
 
-Due to time restraints I was unable to keep investigating and improving the 'linear' versions, therefore the v2 model was used in the final streamlit application. It is also worth mentioning the unreliability of codeanywhere seriously hampered model fitting efforts and slowed this process down. Although I reverted back to a different version the exercise of experimenting with the layers in the CNN was a valuable exercise and gave valuable first hand experience on how to overcome training issues when developing machine learning pipelines.
+Due to time restraints I was unable to keep investigating and improving the 'linear' versions, therefore the v2 model was used in the final streamlit application. It is also worth mentioning the unreliability of codeanywhere seriously hampered model fitting efforts and slowed this process down. Although I reverted back to a different version, the exercise of experimenting with the layers in the CNN was a valuable one and gave useful first hand experience on how to overcome training issues when developing machine learning pipelines.
 
 ## Future Implementations/Plans
 
@@ -356,7 +358,7 @@ In the future I would like to incorporate:
 
 3. Database/Storage of Results - It would be very valuable to a business to be able to go back and view history of mildew detection across its farms. This would greatly assist in detecting any patterns of mildew instances across different times of year, locations and other factors which would in turn inform preventative actions to stop powdery mildew from occurring. I did explore the possibility of adding a database to this project, however the complexity and prospect for this to break the existing system made it to great a risk in terms of time vs reward.
 
-If sufficient data was collected, this could potentially form the basis of another related ML system. If the impact of weather/season in creating/leading to instances of powdery mildew could be determined by historical data gathered by the application, in combination with real time weather forecasts, then predictions on which farms at specific times may become vulnerable to powdery mildew outbreaks in the near future could be made. This would be very valuable to any agricultural business, but far beyond the scope of this project. 
+If sufficient data was collected though, this could potentially form the basis of another related ML system. If the impact of weather/season in creating/leading to instances of powdery mildew could be determined by historical data gathered by the application, in combination with real time weather forecasts, then predictions on which farms at specific times may become vulnerable to powdery mildew outbreaks in the near future could be made. This would be very valuable to any agricultural business, but far beyond the scope of this project. 
 
 ## Technologies Used
 
@@ -372,13 +374,15 @@ Python and Jupyter Notebooks. Markdown is used in the project documentation and 
 
 - Code anywhere - The workspace and IDE for producing the site.
 
-- Lucidchart - For wireframes and models.
-
-- Google Developer Tools - For troubleshooting/bug resolution and testing responsiveness
+- Lucidchart - For wireframes.
 
 - Am I Responsive? - To create images of website on range of device screens.
 
 - Kaggle - Project Data
+
+- Heroku - Deployment
+
+- Streamlit - Dashboard
 
 ### Libraries Used
 
