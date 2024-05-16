@@ -15,6 +15,11 @@ Please use the link below to view the live, deployed site:
 - [Mildew Detector](#Mildew-Detector)
   - [Overview](#overview)
   - [CONTENTS](#contents)
+  - [Dataset Consent](#dataset-consent)
+  - [Business Requirements](#business-requirements)
+  - [Business Case Assessment](#business-case-assessment)
+  - [Project Hypotheses and Validation](#project-hypotheses-and-validation)
+  - [Rationale of Business Requirements to Data Visualisation and ML Tasks](#rationale-of-business-requirements-to-data-visualisation-and-machine-learning-tasks)
   - [User Experience Design](#user-experience-design)
     - [The Strategy Plane](#the-strategy-plane)
       - [Site Goals](#site-goals)
@@ -43,6 +48,16 @@ Please use the link below to view the live, deployed site:
   - [Credits](#credits)
     - [Code Used](#code-used)
   - [Acknowledgements](#acknowledgements)
+
+## Dataset Consent
+
+The data set has been provided for us by Farmy & Foods, a fictitious agricultural company, who have a requirement for an ML system. The data data can be found here on Kaggle:
+
+https://www.kaggle.com/codeinstitute/cherry-leaves
+
+The data contains several thousand images of cherry tree leaves which are healthy, or infected with powdery mildew.
+
+In the interest of making this project as 'real' as possible, particularly within the context of business value, Farmy & Foods will largely be described and referred to as a real company. 
 
 ## Business Requirements
 
@@ -96,7 +111,9 @@ The client will not supply the market with a product of compromised quality. The
 
 2 - Powdery mildew infected leaves will display less green on their surfaces, due to greater white/grey areas from powdery mildew.
 
-3 - Healthy leaves will exhibit a largely green surface. 
+3 - Healthy leaves will exhibit a largely green surface.
+
+The hypotheses will be accepted or rejected based on the ability for the machine learning system to accurately, to an agreed theshold of 97%, classify a leaf as healthy or infected with powdery mildew. Please view the Project Hypotheses page within the live app for details.
 
 ## Rationale of Business Requirements to Data Visualisation and Machine Learning Tasks
 
@@ -459,6 +476,8 @@ Please see separate testing.md for full details.
 ### Code and Information Used
 
 The following sites were used for information/code:
+
+- The Code Institute Malaria Detector Walkthrough Project was used extensively throughout this project. 
 
 - https://stackoverflow.com/questions/21517879/python-pil-resize-all-images-in-a-folder - Used for guidance on converting image size. 
 
