@@ -8,7 +8,9 @@ The Powdery Mildew Detector Cherry is a machine learning project which is design
 
 Please use the link below to view the live, deployed site:
 
-[Powdery Mildew Detector - Live App](https://powdery-mildew-detector-cherry-edbe0ab1b346.herokuapp.com/)
+[Powdery Mildew Detector - Live App](https://mildew-detector-q5gy.onrender.com/)
+
+This project was initially deployed via Heroku. This platform was later replace with Render, and the app is now hosted there.
 
 ## CONTENTS
 
@@ -180,7 +182,7 @@ This epic incorporates the user stories required for the initial project setup a
 
 - Install necessary libraries and requirements
 - Ensure Kaggle json files and other sensitive information kept secure
-- Successfully deploy via Heroku early prior to main development effort
+- Successfully deploy via Render early prior to main development effort
 - Create and maintain project documentation
 
 EPIC 3 - Data Collection, Preparation and Visualisation
